@@ -1,51 +1,118 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+import CustomModal from '../components/Modal.astro';
+import ContactForm from '../components/forms/ContactForm.astro';
+import { Image } from "astro:assets"
+
+	// const posts_blog = (await getCollection('blog'))
+	// .filter(post => post.data.status == 'active') // Filter out active posts
+  	// .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()).reverse()
+	// .slice(0, 3); // Limit to the first 3 posts
+
+	const posts_project = (await getCollection('project'))
+	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()).reverse();
+
+	const posts_project_featured = (await getCollection('project'))
+	.filter(post => post.data.status == 'featured') // Filter out active posts
+	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());	
+
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<h3>🧑‍🚀 !!!</h2>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
+<Layout title="t2del" meta_description="Dennis Macapagal" body_class="home" image="favicon.ico">
+	<HomeHeroSection />
+	<section id="about">
+		<Container className="container-about">
+			<h2 class="notshow fromleft">About <span class="text-gradient">T2del</span></h2>
+
+			<div class="link-card-grid">
+				<div class="photo notshow blur">
+					<Image src="/assets/images/home/den.jpg" width={400} height={400} format='webp' alt={'Dennis Macapagal'} class:list={'profile-photo'} loading="eager"></Image>
+				</div>
+				<div class="description ">
+					<p class=" notshow blur">
+						A <code>Full-Stack</code> Developer with more than 10 years of relevant experience in web programming. Bringing up-to-date industry skills in front-end and back-end technology such as PHP, HTML, CSS, JavaScript, MySQL and hands-on experience with CMS such as WordPress. Detail-oriented and motivated to drive project completion on target with exceptional quality and guaranteed client satisfaction.
+					</p>
+					<ul class="list-unstyled list-boxed notshow blur" id="skills-list">
+						<li>PHP</li>
+						<li>HTML</li>
+						<li>CSS</li>
+						<li>Bootstrap</li>
+						<li>Sass / Less</li>
+						<li>JavaScript (jQuery, Ajax, Json)</li>
+						<li>MySQL</li>
+						<li>WordPress/ Woocommerce</li>							
+						<li>OpenCart</li>
+						<li>Laravel</li>
+						<li>RestAPI</li>
+						<li>GIT</li>
+						<li><a href="https://astro.build/">Astro.Build</a></li>
+					</ul>
+				</div>				
+			</div>					
+		</Container>
+	</section>
+
+	
+		
+	<section id="portfolio">			
+		<Container className="container-portfolio">
+			<h2 class="notshow fromleft"> <span class="text-gradient">Portfolio</span></h2>
+			<ul role="list" class="link-card-grid featured">
+				{
+					posts_project_featured.map((post) => (
+						<li class="notshow blur portfolio-list"  id={post.slug}>
+							<CustomModal 
+								title={post.data.title} 
+								slug={post.slug} 
+								siteURL={post.data.siteUrl} 
+								classText="animate_underline" 
+								imgsrc={post.data.heroImage}
+								imgsrcScroll={post.data.heroImageScroll}
+								role={post.data.role}
+								platform={post.data.platform}
+							/>
+						</li>
+					))
+				}				
 			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+			<ul role="list" class="link-card-grid">
+				{
+					posts_project.map((post) => {
+						if (post.data.status == 'active') {
+							return (
+								<li class="notshow blur portfolio-list"  id={post.slug}>
+									<CustomModal 
+										title={post.data.title} 
+										slug={post.slug}
+										siteURL={post.data.siteUrl} 
+										classText="animate_underline" 
+										imgsrc={post.data.heroImage}
+										imgsrcScroll={post.data.heroImageScroll}
+										role={post.data.role}
+										platform={post.data.platform}
+									/>
+								</li>
+							);
+						}
+						return null;
+					})
+				}
+			</ul>
+								
+		</Container>
+	</section>
+
+	<section id="contact-us">			
+		<Container className="container-contact-us">			
+			<div class="feedback-form">
+				<h2 class="notshow fromleft"> <span class="text-gradient">Contact Me</span></h2>
+				<ContactForm></ContactForm>
+			</div>		
+		</Container>
+							
+	</section>
+</Layout>
