@@ -4,7 +4,7 @@ const { navData, rightMenu } = Astro.props;
 import Container from '../components/Container.astro';
 ---
 <script is:inline type="module" >
-  document.addEventListener('astro:page-load', () => {
+  // document.addEventListener('astro:page-load', () => {
     // put all javascript here
     const menuButton = document.querySelector('#menuButton')
     const navHeader = document.querySelector('#t2delHeader');
@@ -38,7 +38,7 @@ import Container from '../components/Container.astro';
     });
     const hiddenElements = document.querySelectorAll('.notshow');
     hiddenElements.forEach((el) => obeserver.observe(el));
-  }, );  
+  // }, );  
 </script>  
 
 <header id="t2delHeader" class={`${rightMenu ? "header--right" : ``.trim()}`}>
