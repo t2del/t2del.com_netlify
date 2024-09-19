@@ -55,7 +55,7 @@ const { title, meta_description, image, body_class } = Astro.props;
 		<link rel="sitemap" href="/sitemap-index.xml" />
 
 		<script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-8GWLGV29V7"></script>
-		<script type="module" >
+		<script is:inline type="module" >
 			document.addEventListener('astro:page-load', () => {
 				// <!-- paste GA4 Tracking here -->
 				window.dataLayer = window.dataLayer || [];

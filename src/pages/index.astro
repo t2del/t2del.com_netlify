@@ -1,51 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Container from '../components/Container.astro';
 import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
-import { getCollection, getEntry } from 'astro:content';
-
-import { Image } from "astro:assets"
-
-const posts_project = (await getCollection('project'))
-.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()).reverse();
-
-const posts_project_featured = (await getCollection('project'))
-.filter(post => post.data.status == 'featured') // Filter out active posts
-.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());	
-
 ---
-
 <Layout title="t2del" meta_description="Dennis Macapagal" body_class="home" image="favicon.ico">
 	<HomeHeroSection />
-	<section id="about">
-		<Container className="container-about">
-			<h2 class="notshow fromleft">About <span class="text-gradient">T2del</span></h2>
-
-			<div class="link-card-grid">
-				<div class="photo notshow blur">
-					<Image src="/assets/images/home/den.jpg" width={400} height={400} format='webp' alt={'Dennis Macapagal'} class:list={'profile-photo'} loading="eager"></Image>
-				</div>
-				<div class="description ">
-					<p class=" notshow blur">
-						A <code>Full-Stack</code> Developer with more than 10 years of relevant experience in web programming. Bringing up-to-date industry skills in front-end and back-end technology such as PHP, HTML, CSS, JavaScript, MySQL and hands-on experience with CMS such as WordPress. Detail-oriented and motivated to drive project completion on target with exceptional quality and guaranteed client satisfaction.
-					</p>
-					<ul class="list-unstyled list-boxed notshow blur" id="skills-list">
-						<li>PHP</li>
-						<li>HTML</li>
-						<li>CSS</li>
-						<li>Bootstrap</li>
-						<li>Sass / Less</li>
-						<li>JavaScript (jQuery, Ajax, Json)</li>
-						<li>MySQL</li>
-						<li>WordPress/ Woocommerce</li>							
-						<li>OpenCart</li>
-						<li>Laravel</li>
-						<li>RestAPI</li>
-						<li>GIT</li>
-						<li><a href="https://astro.build/">Astro.Build</a></li>
-					</ul>
-				</div>				
-			</div>					
-		</Container>
-	</section>
 </Layout>

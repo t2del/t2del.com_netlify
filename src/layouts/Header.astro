@@ -3,10 +3,9 @@ import { Icon } from 'astro-icon'
 const { navData, rightMenu } = Astro.props;
 import Container from '../components/Container.astro';
 ---
-<script type="module" >
+<script is:inline type="module" >
   document.addEventListener('astro:page-load', () => {
     // put all javascript here
-    const bodyElement = document.querySelector('body');
     const menuButton = document.querySelector('#menuButton')
     const navHeader = document.querySelector('#t2delHeader');
     const menuButtonIconHam = document.querySelector('#menuButtonIconHam');
