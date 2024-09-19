@@ -4,21 +4,15 @@ import Container from '../components/Container.astro';
 import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
 import { getCollection, getEntry } from 'astro:content';
 
-import CustomModal from '../components/Modal.astro';
 import ContactForm from '../components/forms/ContactForm.astro';
 import { Image } from "astro:assets"
 
-	// const posts_blog = (await getCollection('blog'))
-	// .filter(post => post.data.status == 'active') // Filter out active posts
-  	// .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()).reverse()
-	// .slice(0, 3); // Limit to the first 3 posts
+const posts_project = (await getCollection('project'))
+.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()).reverse();
 
-	const posts_project = (await getCollection('project'))
-	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()).reverse();
-
-	const posts_project_featured = (await getCollection('project'))
-	.filter(post => post.data.status == 'featured') // Filter out active posts
-	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());	
+const posts_project_featured = (await getCollection('project'))
+.filter(post => post.data.status == 'featured') // Filter out active posts
+.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());	
 
 ---
 
@@ -54,65 +48,5 @@ import { Image } from "astro:assets"
 				</div>				
 			</div>					
 		</Container>
-	</section>
-
-	
-		
-	<section id="portfolio">			
-		<Container className="container-portfolio">
-			<h2 class="notshow fromleft"> <span class="text-gradient">Portfolio</span></h2>
-			<ul role="list" class="link-card-grid featured">
-				{
-					posts_project_featured.map((post) => (
-						<li class="notshow blur portfolio-list"  id={post.slug}>
-							<CustomModal 
-								title={post.data.title} 
-								slug={post.slug} 
-								siteURL={post.data.siteUrl} 
-								classText="animate_underline" 
-								imgsrc={post.data.heroImage}
-								imgsrcScroll={post.data.heroImageScroll}
-								role={post.data.role}
-								platform={post.data.platform}
-							/>
-						</li>
-					))
-				}				
-			</ul>
-			<ul role="list" class="link-card-grid">
-				{
-					posts_project.map((post) => {
-						if (post.data.status == 'active') {
-							return (
-								<li class="notshow blur portfolio-list"  id={post.slug}>
-									<CustomModal 
-										title={post.data.title} 
-										slug={post.slug}
-										siteURL={post.data.siteUrl} 
-										classText="animate_underline" 
-										imgsrc={post.data.heroImage}
-										imgsrcScroll={post.data.heroImageScroll}
-										role={post.data.role}
-										platform={post.data.platform}
-									/>
-								</li>
-							);
-						}
-						return null;
-					})
-				}
-			</ul>
-								
-		</Container>
-	</section>
-
-	<section id="contact-us">			
-		<Container className="container-contact-us">			
-			<div class="feedback-form">
-				<h2 class="notshow fromleft"> <span class="text-gradient">Contact Me</span></h2>
-				<ContactForm></ContactForm>
-			</div>		
-		</Container>
-							
 	</section>
 </Layout>
