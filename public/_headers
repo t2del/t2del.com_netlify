@@ -1,7 +1,8 @@
 /*
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
-  Content-Security-Policy: script-src 'self' 'unsafe-inline' 'script-src-elem'
+
+  Content-Security-Policy: default-src 'none'; script-src https://astrot2del.netlify.app/
   X-Content-Type-Options: nosniff
   Referrer-Policy: same-origin
   Permissions-Policy: geolocation=(self "https://example.com"), microphone=()
