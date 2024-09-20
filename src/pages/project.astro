@@ -12,9 +12,7 @@ import { Image } from "astro:assets";
 	.filter(post => post.data.status == 'featured') // Filter out active posts
 	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 ---
-<Layout title="t2del" meta_description="Dennis Macapagal" body_class="home" image="favicon.ico">
-	<HomeHeroSection />
-
+<Layout title="t2del | Project" meta_description="List of projects i have worked and still working on" body_class="home" image="favicon.ico">
 	<section id="portfolio">			
 		<Container className="container-portfolio">
 			<h2 class="notshow fromleft"> <span class="text-gradient">Projects</span></h2>
