@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
 import Container from '../components/Container.astro';
 import { getCollection } from 'astro:content';
-import { Image } from "astro:assets"
+import { Image } from "astro:assets";
 
 	const posts_project = (await getCollection('project'))
 	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()).reverse();
@@ -23,13 +23,14 @@ import { Image } from "astro:assets"
 					posts_project_featured.map((post) => (
 						<li class="notshow blur portfolio-list"  id={post.slug}>
 							<a href={`/project/${post.slug}`}>
-								<Image 
-									src={post.data.heroImage} 
-									width={250} 
-									height={150} 
-									format='webp' 
+								<Image  
+									src={post.data.heroImage}
 									alt={post.data.title} 
-									loading="eager">
+									width={350} 
+									height={180} 
+									format='webp'									 
+									loading="eager"
+								>
 								</Image>
 								<h4>{post.data.title}</h4>
 							</a>
@@ -46,8 +47,8 @@ import { Image } from "astro:assets"
 									<a href={`/project/${post.slug}`}>
 										<Image 
 											src={post.data.heroImage} 
-											width={250} 
-											height={150} 
+											width={350} 
+											height={180} 
 											format='webp' 
 											alt={post.data.title} 
 											loading="eager">

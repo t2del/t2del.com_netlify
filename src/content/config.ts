@@ -21,9 +21,9 @@ const blog = defineCollection({
 const project = defineCollection({
 	// Type-check frontmatter using a schema
 	schema: z.object({
-		title: z.string().optional(),
-		desc: z.string().optional(),
-		heroImage: z.string().optional(),
+		title: z.string(),
+		desc: z.string(),
+		heroImage: z.string(),
 		heroThumb: z.string().optional(),
 		heroImageScroll: z.string().optional(),
 		siteUrl: z.string().optional(),
