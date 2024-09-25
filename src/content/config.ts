@@ -23,13 +23,12 @@ const project = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		desc: z.string(),
-		heroImage: z.string(),
+		heroImage: z.string().optional(),
 		heroThumb: z.string().optional(),
 		heroImageScroll: z.string().optional(),
 		siteUrl: z.string().optional(),
 		role: z.string().optional(),
 		platform: z.string().optional(),
-		// Transform string to Date object
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		status: z.string().optional(),
