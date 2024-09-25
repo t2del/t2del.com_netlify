@@ -15,8 +15,6 @@ interface Props {
 	body_class: string;
 	image: string;
 }
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, meta_description, image='/favicon.ico', body_class } = Astro.props;
 ---
 
@@ -25,31 +23,6 @@ const { title, meta_description, image='/favicon.ico', body_class } = Astro.prop
 			
 	<head>
 		<BaseHead title={title} description={meta_description} image={image}></BaseHead>
-		<!-- <meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="canonical" href={canonicalURL} />
-
-		<title>{title}</title>
-		<meta name="title" content={title} />
-		<meta name="description" content={meta_description} />
-
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={Astro.url} />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={meta_description} />
-		<meta property="og:image" content={new URL(image, Astro.url)} />
-
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={Astro.url} />
-		<meta property="twitter:title" content={title} />
-		<meta property="twitter:description" content={meta_description} />
-		<meta property="twitter:image" content={new URL(image, Astro.url)} /> -->
-		
-		
-
-		
 	</head>
 
 	<body class={body_class} transition:animate={fade({ duration: "0.2s" })}>			

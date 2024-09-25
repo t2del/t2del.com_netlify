@@ -10,11 +10,11 @@ const project = (await getCollection('project')).sort(
 <Layout title="t2del | Project" meta_description="List of projects i have worked and still working on" body_class="home" image="favicon.ico">
 	<section id="portfolio">			
 		<Container className="container-portfolio">
-			<h1 class="notshow fromleft"> <span class="text-gradient">Projects</span></h1>
+			<h1 class="notshow fromleft text-center"> <span class="text-gradient">Projects</span></h1>
 			<ul role="list" class="link-card-grid">
 				{project.map((post) => (
 						<li class="notshow blur portfolio-list">
-							<a href={`/blog/${post.slug}/`}>
+							<a href={`/project/${post.slug}/`}>
 								<img src={post.data.heroImage} width={350} height={220} alt={post.data.title}>
 								<h4 class="title">{post.data.title}</h4>
 							</a>

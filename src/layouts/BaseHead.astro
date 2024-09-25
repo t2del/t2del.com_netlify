@@ -2,7 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import 'font-awesome/css/font-awesome.min.css';
-//import { ViewTransitions } from "astro:transitions";
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
 	title: string;
@@ -13,7 +13,7 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, image = '/favicon.ico' } = Astro.props;
 ---
-<!-- <ViewTransitions></ViewTransitions> -->
+<ViewTransitions></ViewTransitions>
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
