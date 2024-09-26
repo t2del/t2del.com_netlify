@@ -11,7 +11,7 @@ const { prevUrl , nextUrl } = Astro.props;
     prevUrl && (
       <Link
         text="Previous"
-        href={`/t2delastro${prevUrl}/`}
+        href={`${prevUrl}`}
         style="primary"
         borderVisible={true}
         isFilled={false}
@@ -26,7 +26,7 @@ const { prevUrl , nextUrl } = Astro.props;
     nextUrl && (
       <Link
         text="Next"
-        href={`/t2delastro${nextUrl}/`}
+        href={`${nextUrl}`}
         style="primary"
         borderVisible={true}
         isFilled={false}
