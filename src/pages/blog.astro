@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+
+import { getCollection } from 'astro:content';
+const blog = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+<Layout title="Blog | t2del" meta_description="Blog | My Blog" body_class="blog-list" image="/favicon.ico">
+	<section>
+		<Container className="container-blog">
+			<h1 class="notshow fromleft text-center"> <span class="text-gradient">Blog</span></h1>
+			<ul role="list" class="link-card-grid">
+				{blog.map((post) => (
+						<li class="notshow blur portfolio-list">
+							<a href={`/blog/${post.slug}/`}>
+								<img src={post.data.heroImage} width={300} height={200} alt={post.data.title}>
+								<h4 class="title">{post.data.title}</h4>
+							</a>
+						</li>
+				))}
+			</ul>							
+		</Container>
+	</section>
+</Layout>
