@@ -9,6 +9,10 @@ header {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.10);
 }
+header.ac-modal-header {
+  position: relative !important;
+    z-index: -1;
+}
 body.home header {
   background-color: rgba(0, 0, 0, 0.10);
 }

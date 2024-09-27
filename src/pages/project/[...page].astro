@@ -1,22 +1,23 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Container from '../../components/Container.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
 import Pagination from "../../components/Pagination.astro";
 import type { GetStaticPathsOptions, Page } from 'astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
+import {  Modal, ModalHeader, ModalBody } from 'free-astro-components'
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 	const project = (await getCollection('project'))
+	.filter(post => post.data.status == 'active')
   	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()).reverse();
   	
 	// Return a paginated collection of paths for all posts
   	return paginate(project, { pageSize: 4 });
 }
 
-	const posts_project_featured = (await getCollection('project'))
-	.filter(post => post.data.status == 'featured') // Filter out active posts
-	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
+const posts_project_featured = (await getCollection('project'))
+.filter(post => post.data.status == 'featured') // Filter out active posts
+.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 
 // If set up correctly, The page prop now has everything that
 // you need to render a single page (see next section).
@@ -24,6 +25,7 @@ type Props = { page: Page<CollectionEntry<'blog'>> };
 
 const { page } = Astro.props;
 const project = page.data;
+console.log(project)
 ---
 
 <Layout title="t2del | Project" meta_description="List of projects i have worked and still working on" body_class="home" image="favicon.ico">
@@ -44,13 +46,25 @@ const project = page.data;
 				{
 					project.map((post) => ( 					
 						<li class="notshow fromtop">
-							<a href={`/project/${post.slug}/`}>
-								<img  src={post.data.heroImage} alt={post.data.imgalt} title={post.data.imgalt} />
+							<button  data-modal-trigger={post.slug}>
+								<img width="350" height="200" src={post.data.heroImage} alt={post.data.imgalt} title={post.data.imgalt} />
 								<h4 class="title">{post.data.title}</h4>
-								<p class="date">
-									<FormattedDate date={post.data.pubDate} />
-								</p>
-							</a>							
+							</button>
+
+
+							<Modal id={post.slug} size="4xl">
+								<ModalHeader>
+									<h4>{post.data.title}</h4>
+								</ModalHeader>
+								<ModalBody>
+									<div class="description">
+										<img src={post.data.heroImageScroll} alt={post.data.imgalt} title={post.data.imgalt} />
+										<div>Role: <span>{post.data.role}</span></div>
+										<div>Platform: <span>{post.data.platform}</span></div>
+						<a href={post.data.siteUrl} rel="noopener noreferrer"><span>Visit Site</span></a>
+									</div>
+								</ModalBody>
+							</Modal>							
 						</li>
 					))
 				}
