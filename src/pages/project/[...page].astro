@@ -21,36 +21,24 @@ const posts_project_featured = (await getCollection('project'))
 
 // If set up correctly, The page prop now has everything that
 // you need to render a single page (see next section).
-type Props = { page: Page<CollectionEntry<'blog'>> };
+type Props = { page: Page<CollectionEntry<'project'>> };
 
 const { page } = Astro.props;
 const project = page.data;
-console.log(project)
+
 ---
 
 <Layout title="t2del | Project" meta_description="List of projects i have worked and still working on" body_class="home" image="favicon.ico">
 	<section>
 		<Container className="container-blog">
-			<h1 class="notshow fromleft"> <span class="text-gradient">Projects</span></h1>
+			<h1 class="notshow fromleft text-center"> <span class="text-gradient">Projects</span></h1>
 			<ul role="list" class="link-card-grid featured">
 				{posts_project_featured.map((post) => (
 						<li class="notshow blur portfolio-list">
-							<a href={`/project/${post.slug}/`}>
-								<img src={post.data.heroImage} width={300} height={200} alt={post.data.title}>
-								<h4 class="title">{post.data.title}</h4>
-							</a>
-						</li>
-				))}
-			</ul>
-			<ul role="list" class="link-card-grid grid-3">
-				{
-					project.map((post) => ( 					
-						<li class="notshow fromtop">
 							<button  data-modal-trigger={post.slug}>
-								<img width="350" height="200" src={post.data.heroImage} alt={post.data.imgalt} title={post.data.imgalt} />
+								<img width="350" height="200" src={post.data.heroImage} alt={post.data.title} title={post.data.title} />
 								<h4 class="title">{post.data.title}</h4>
 							</button>
-
 
 							<Modal id={post.slug} size="4xl">
 								<ModalHeader>
@@ -58,15 +46,52 @@ console.log(project)
 								</ModalHeader>
 								<ModalBody>
 									<div class="description">
-										<img src={post.data.heroImageScroll} alt={post.data.imgalt} title={post.data.imgalt} />
-										<div>Role: <span>{post.data.role}</span></div>
-										<div>Platform: <span>{post.data.platform}</span></div>
-						<a href={post.data.siteUrl} rel="noopener noreferrer"><span>Visit Site</span></a>
+										<div class="scrollable">
+											<img src={post.data.heroImageScroll ? post.data.heroImageScroll : post.data.heroImage } alt={post.data.title} title={post.data.title}  />
+										</div>
+										
+										<div class="inner">
+											<div>Role: <span>{post.data.role}</span></div>
+											<div>Platform: <span>{post.data.platform}</span></div>
+											<a href={post.data.siteUrl} rel="noopener noreferrer"><span>Visit Site</span></a>
+										</div>										
+									</div>
+								</ModalBody>
+							</Modal>
+						</li>
+				))}
+			</ul>
+			<ul role="list" class="link-card-grid grid-3">
+				{
+					project.map(
+						(post) => (					
+						<li class="notshow fromtop">
+							<button  data-modal-trigger={post.slug}>
+								<img width="350" height="200" src={post.data.heroImage} alt={post.data.title} title={post.data.title} />
+								<h4 class="title">{post.data.title}</h4>
+							</button>
+
+							<Modal id={post.slug} size="4xl">
+								<ModalHeader>
+									<h4>{post.data.title}</h4>
+								</ModalHeader>
+								<ModalBody>
+									<div class="description">
+										<div class="scrollable">
+											<img src={post.data.heroImageScroll ? post.data.heroImageScroll : post.data.heroImage } alt={post.data.title} title={post.data.title}  />
+										</div>
+										
+										<div class="inner">
+											<div>Role: <span>{post.data.role}</span></div>
+											<div>Platform: <span>{post.data.platform}</span></div>
+											<a href={post.data.siteUrl} rel="noopener noreferrer"><span>Visit Site</span></a>
+										</div>	
 									</div>
 								</ModalBody>
 							</Modal>							
 						</li>
-					))
+						)
+					)
 				}
 			</ul>
 			<Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
