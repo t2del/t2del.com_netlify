@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon'
 const { navData, rightMenu } = Astro.props;
 import Container from '../components/Container.astro';
-
+import { ThemeSwitch } from 'free-astro-components'
 ---
 <script is:inline type="module" >
   //document.addEventListener('astro:page-load', () => {
@@ -79,6 +79,7 @@ import Container from '../components/Container.astro';
                   )}
                 </li>
               ))}
+              <li><ThemeSwitch /></li>
             </ul>
           </nav>
         )}
