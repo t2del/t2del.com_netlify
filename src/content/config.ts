@@ -14,7 +14,7 @@ const blog = defineCollection({
 		imgalt: z.string().optional(),
 		status: z.string().optional(),
 		author: z.string().optional(),
-
+		customclass: z.string().optional(),
 	}),
 });
 
