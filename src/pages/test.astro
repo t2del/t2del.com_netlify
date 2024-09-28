@@ -1,18 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Container from '../components/Container.astro';
-
-import { getCollection } from 'astro:content';
-const project = (await getCollection('project')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
 ---
-<Layout title="t2del | Project" meta_description="List of projects i have worked and still working on" body_class="home" image="favicon.ico">
-	<section id="portfolio">			
-		<Container className="container-portfolio">
-			<h1 class="notshow fromleft text-center"> <span class="text-gradient">Projects</span></h1>
+<Layout title="t2del | Contact Me" meta_description="List of projects i have worked and still working on" body_class="home" image="/favicon.ico">
+	<section id="contact-us">			
+		<Container className="container-contact">
+			<h1 class="notshow fromleft text-center"> <span class="text-gradient">Contact Us</span></h1>
 
-			  <form name="contact" method="POST"  id="my-form" data-netlify="true">
+			  <form method="POST" name="contact" action="/pages/success"  id="my-form" data-netlify="true">
 				<label>Your Name:</label>
 					<input type="text" name="name" />
 				<label>Email:</label>
@@ -21,6 +16,7 @@ const project = (await getCollection('project')).sort(
 					<textarea name="message" placeholder="Message" /></textarea>
 				<button id="my-form-button">Submit</button>
 				<p id="my-form-status"></p>
+				<input type="hidden" name="form-name" value="contact">
 			  </form>						
 		</Container>
 	</section>
