@@ -35,7 +35,7 @@ const project = page.data;
 			<ul role="list" class="link-card-grid featured">
 				{posts_project_featured.map((post) => (
 						<li class="notshow blur portfolio-list">
-							<button  data-modal-trigger={post.slug}>
+							<button  data-modal-trigger={post.slug} class="btn-modal">
 								<img width="350" height="200" src={post.data.heroImage} alt={post.data.title} title={post.data.title} />
 								<h4 class="title">{post.data.title}</h4>
 							</button>
@@ -66,7 +66,7 @@ const project = page.data;
 					project.map(
 						(post) => (					
 						<li class="notshow fromtop">
-							<button  data-modal-trigger={post.slug}>
+							<button  data-modal-trigger={post.slug} class="btn-modal">
 								<img width="350" height="200" src={post.data.heroImage} alt={post.data.title} title={post.data.title} />
 								<h4 class="title">{post.data.title}</h4>
 							</button>

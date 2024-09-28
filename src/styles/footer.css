@@ -1,7 +1,7 @@
 footer {
-	  background-color: #fafafa;
-    border-top: 1px solid #f3f3f3;
-    border-bottom: 1px solid #f3f3f3;
+	background-color: var(--theme-bg);
+    border-top: 1px solid var(--theme-surface-1);
+    /* border-bottom: 1px solid #f3f3f3; */
     padding: 50px 0;
 }
 footer .content__container.container-footer{

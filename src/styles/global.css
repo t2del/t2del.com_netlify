@@ -344,12 +344,13 @@ nav.pagination-blog {
 }
 nav.pagination-blog a {
 	display: flex;
-	align-items: center;
+    align-items: center;
     gap: 5px;
-	border: 1px solid #001;
+    border: 1px solid var(--theme-on-bg);
     padding: 5px 10px;
     border-radius: 5px;
-	transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    background: var(--theme-on-primary);
 }
 nav.pagination-blog a:hover {
 	transform: translate(-2px, -2px);
