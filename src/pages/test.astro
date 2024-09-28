@@ -7,12 +7,12 @@ import Container from '../components/Container.astro';
 		<Container className="container-contact">
 			<h1 class="notshow fromleft text-center"> <span class="text-gradient">Contact Us</span></h1>
 
-			  <form method="POST" name="contact" action="/pages/success"  id="my-form" data-netlify="true">
-				<label>Your Name:</label> 	<input type="text" name="name" />
-				<label>Email:</label> 		<input type="email" name="email" placeholder="Email" />
-				<label>Message:</label> 	<textarea name="message" placeholder="Message" /></textarea>
-											<input type="submit" id="my-form-button" value="Submit">
-											<input type="hidden" name="form-name" value="contact">
+			  <form  name="contact" action="/pages/success"  id="my-form" method="POST" data-netlify="true">
+				<label>Your Name:	<input type="text" name="name" /></label> 	
+				<label>Email:		<input type="email" name="email" placeholder="Email" /></label> 		
+				<label>Message: <textarea name="message" placeholder="Message" /></textarea></label>
+				<label><input type="submit" id="my-form-button" value="Submit"></label>
+				<label><input type="hidden" name="form-name" value="contact"></label>
 			  </form>						
 		</Container>
 	</section>
