@@ -1,27 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Container from '../components/Container.astro';
+
+
+const errors = { message: "", email: "", name: ""};
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const message = data.get("message");
+    const email = data.get("email");
+	const name = data.get("name");
+
+    if (typeof message !== "string" || message.length < 1) {
+      errors.message += "Please enter a message. ";
+    }
+	if (typeof name !== "string" || name.length < 1) {
+      errors.name += "Please enter your name. ";
+    }
+    if (typeof email !== "string") {
+      errors.email += "Email is not valid. ";
+    } 
+    
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
 ---
 <Layout title="t2del | Contact Me" meta_description="List of projects i have worked and still working on" body_class="home" image="/favicon.ico">
 	<section id="contact-us">			
 		<Container className="container-contact">
 			<h1 class="notshow fromleft text-center"> <span class="text-gradient">Contact Us</span></h1>
-
-			  <form  name="contact" id="my-form" method="POST" data-netlify="true">
-				<label>Your Name:	<input type="text" name="name" /></label> 	
-				<label>Email:		<input type="email" name="email" placeholder="Email" /></label> 		
-				<label>Message: 	<input type="text" name="message" /></label>
-				<label><input type="submit" id="my-form-button" value="Submit"></label>
-				<label><input type="hidden" name="form-name" value="contact"></label>
-			  </form>
-			  <!-- modify this form HTML and place wherever you want your form -->
 			<form
 				action="https://formspree.io/f/mvojypdr"
 				name="contact-2" id="my-form" method="POST" data-netlify="true"
 			>
-				<label>Your Name:	<input type="text" name="name" /></label> 	
-				<label>Email:		<input type="email" name="email" placeholder="Email" /></label> 		
+				<label>Your Name:	<input type="text" name="name" /></label>
+				{errors.name && <p>{errors.name}</p>} 
+				<label>Email:		<input type="email" name="email" placeholder="Email" /></label>
+				{errors.email && <p>{errors.email}</p>} 		
 				<label>Message: 	<input type="text" name="message" /></label>
+				{errors.message && <p>{errors.message}</p>}
 				<label><input type="submit" id="my-form-button" value="Submit"></label>
 				<label><input type="hidden" name="form-name" value="contact-2"></label>
 			</form>					
