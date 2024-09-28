@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+import ContactForm from '../components/forms/ContactForm.astro';
+---
+<Layout title="Contact Me | t2del" meta_description="t2del" body_class="contact-us" image="/favicon.ico">
+	<section id="contact-us">			
+		<Container className="container-contact-us">			
+			<div class="feedback-form">
+				<h2 class="notshow fromleft"> <span class="text-gradient">Message Me</span></h2>
+				<ContactForm></ContactForm>
+			</div>		
+		</Container>						
+	</section>	
+</Layout>
