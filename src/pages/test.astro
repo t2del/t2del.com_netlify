@@ -44,20 +44,13 @@ if (Astro.request.method === "POST") {
 				{errors.message && <p>{errors.message}</p>}
 				<label><input type="submit" id="my-form-button" value="Submit"></label>
 				<label><input type="hidden" name="form-name" value="contact-2"></label>
+				<p id="my-form-status"></p>
 			</form>					
 		</Container>
 	</section>
 </Layout>
 
-<!-- modify this form HTML and place wherever you want your form -->
-<form id="my-form" action="https://formspree.io/f/mvojypdr" method="POST">
-	<label>Email:</label>
-	<input type="email" name="email" />
-	<label>Message:</label>
-	<input type="text" name="message" />
-	<button id="my-form-button">Submit</button>
-	<p id="my-form-status"></p>
-  </form>
+
   
   <!-- Place this script at the end of the body tag -->
   <script is:inline>
