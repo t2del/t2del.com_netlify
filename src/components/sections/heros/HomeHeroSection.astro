@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 ---
+<div class="main" transition:name="hero" transition:persist>
 	<section class="hero-section__section" transition:name="hero">
 		<div class="hero-section__image notshow blur">
 			<picture>				
@@ -29,7 +30,7 @@ import { Image } from "astro:assets";
 			</ul>
 		</div>		
 	</section>
-
+</div>
 
 <style>
 	.drop-shadow {

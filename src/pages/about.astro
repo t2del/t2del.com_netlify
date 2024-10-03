@@ -5,36 +5,38 @@ import { Image } from "astro:assets"
 ---
 
 <Layout title="About | t2del" meta_description="About t2del" body_class="about-us" image="/favicon.ico">
-	<section>
-		<Container className="custom-class">
-			<h1 class="notshow fromleft text-center">About <span class="text-gradient">T2del</span></h1>
+	<div class="main" transition:name="slide">
+		<section>
+			<Container className="custom-class">
+				<h1 class="notshow fromleft text-center">About <span class="text-gradient">T2del</span></h1>
 
-			<div class="link-card-grid">
-				<div class="photo">
-					<Image src="/assets/images/home/den.jpg" width={400} height={400} format='webp' alt={'Dennis Macapagal'} class:list={'profile-photo'}></Image>
-				</div>
-				<div class="description">
-					<p>
-						A <code>Full-Stack</code> Developer with more than 10 years of relevant experience in web programming. Bringing up-to-date industry skills in front-end and back-end technology such as PHP, HTML, CSS, JavaScript, MySQL and hands-on experience with CMS such as WordPress. Detail-oriented and motivated to drive project completion on target with exceptional quality and guaranteed client satisfaction.
-					</p>
-					<ul class="list-unstyled list-boxed" id="skills-list">
-						<li>PHP</li>
-						<li>HTML</li>
-						<li>CSS</li>
-						<li>JavaScript (jQuery, Ajax, Json)</li>
-						<li>Bootstrap</li>
-						<li>Sass / Less</li>
-						<li>WordPress/ Woocommerce</li>
-						<li>MySQL</li>
-						<li>OpenCart</li>
-						<li>Laravel</li>
-						<li>RestAPI</li>
-						<li>GIT</li>
-					</ul>
-				</div>
-				
-			</div>
+				<div class="link-card-grid">
+					<div class="photo">
+						<Image src="/assets/images/home/den.jpg" width={400} height={400} format='webp' alt={'Dennis Macapagal'} class:list={'profile-photo'}></Image>
+					</div>
+					<div class="description">
+						<p>
+							A <code>Full-Stack</code> Developer with more than 10 years of relevant experience in web programming. Bringing up-to-date industry skills in front-end and back-end technology such as PHP, HTML, CSS, JavaScript, MySQL and hands-on experience with CMS such as WordPress. Detail-oriented and motivated to drive project completion on target with exceptional quality and guaranteed client satisfaction.
+						</p>
+						<ul class="list-unstyled list-boxed" id="skills-list">
+							<li>PHP</li>
+							<li>HTML</li>
+							<li>CSS</li>
+							<li>JavaScript (jQuery, Ajax, Json)</li>
+							<li>Bootstrap</li>
+							<li>Sass / Less</li>
+							<li>WordPress/ Woocommerce</li>
+							<li>MySQL</li>
+							<li>OpenCart</li>
+							<li>Laravel</li>
+							<li>RestAPI</li>
+							<li>GIT</li>
+						</ul>
+					</div>
 					
-		</Container>
-	</section>
+				</div>
+						
+			</Container>
+		</section>
+	</div>
 </Layout>
