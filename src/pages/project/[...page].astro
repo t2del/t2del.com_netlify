@@ -12,7 +12,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()).reverse();
   	
 	// Return a paginated collection of paths for all posts
-  	return paginate(project, { pageSize: 4 });
+  	return paginate(project, { pageSize: 8 });
 }
 
 const posts_project_featured = (await getCollection('project'))
@@ -28,7 +28,7 @@ const project = page.data;
 
 ---
 
-<Layout title="t2del | Project" meta_description="List of projects i have worked and still working on" body_class="home" image="favicon.ico">
+<Layout title="t2del | Project" meta_description="List of projects i have worked and still working on" body_class="home" image="/favicon.ico">
 	<div class="main" transition:name="slide">
 		<section>
 			<Container className="container-blog">
