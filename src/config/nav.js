@@ -9,7 +9,7 @@ export const nav = [
   	},
 	  {
 		title: 'Blog',
-		slug: '/blog/',
+		slug: 'https://blog.t2del.com',
   	},
 	{
 		title: 'About',
