@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://astrot2del.netlify.app/',
+	site: 'https://www.t2del.com/',
 	integrations: [
         mdx(), 
         sitemap(),
