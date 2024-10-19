@@ -1,0 +1,90 @@
+---
+import Container from "@components/Container.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import { CONTACTS } from "@consts";
+
+
+const errors = { message: "", email: "", name: ""};
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const message = data.get("message");
+    const email = data.get("email");
+	const name = data.get("name");
+
+    if (typeof message !== "string" || message.length < 1) {
+      errors.message += "Please enter a message. ";
+    }
+	if (typeof name !== "string" || name.length < 1) {
+      errors.name += "Please enter your name. ";
+    }
+    if (typeof email !== "string") {
+      errors.email += "Email is not valid. ";
+    } 
+    
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+<PageLayout title={CONTACTS.TITLE} description={CONTACTS.DESCRIPTION}>
+    <Container>
+        <h1 class="animate font-semibold text-black dark:text-white">
+            Contact <span class="text-xl">👋🏻</span>
+          </h1>
+          <div class="space-y-16">
+            <section>
+                <form
+                    action="https://formspree.io/f/mvojypdr"
+                    name="contact-2" id="my-form" method="POST" data-netlify="true"
+                >
+                    <ul class="animate flex flex-col gap-4 show">
+                        <li><label>Your Name:	<input type="text" name="name" /></label>
+                        {errors.name && <p>{errors.name}</p>} </li>
+                        <li><label>Email:		<input type="email" name="email" placeholder="Email" /></label>
+                        {errors.email && <p>{errors.email}</p>}</li>
+                        <li><label>Message: 	<input type="text" name="message" /></label>
+                        {errors.message && <p>{errors.message}</p>}</li>
+                        <li><label><input type="submit" id="my-form-button" value="Submit"></label></li>
+                        <label><input type="hidden" name="form-name" value="contact-2"></label>
+                        <li><p id="my-form-status"></p></li>
+                    </ul>    
+                </form>					
+            </section>
+        </div>
+    </Container>
+</PageLayout>
+  <script is:inline>
+	var form = document.getElementById("my-form");
+	
+	async function handleSubmit(event) {
+	  event.preventDefault();
+	  var status = document.getElementById("my-form-status");
+	  var data = new FormData(event.target);
+	  fetch(event.target.action, {
+		method: form.method,
+		body: data,
+		headers: {
+			'Accept': 'application/json'
+		}
+	  }).then(response => {
+		if (response.ok) {
+		  status.innerHTML = "Thanks for your submission!";
+		  form.reset()
+		} else {
+		  response.json().then(data => {
+			if (Object.hasOwn(data, 'errors')) {
+			  status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+			} else {
+			  status.innerHTML = "Oops! There was a problem submitting your form"
+			}
+		  })
+		}
+	  }).catch(error => {
+		status.innerHTML = "Oops! There was a problem submitting your form"
+	  });
+	}
+	form.addEventListener("submit", handleSubmit)
+  </script>

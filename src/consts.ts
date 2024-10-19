@@ -13,6 +13,11 @@ export const HOME: Metadata = {
   DESCRIPTION: " is a minimal and lightweight blog and portfolio.",
 };
 
+export const CONTACTS: Metadata = {
+  TITLE: "Contact Me",
+  DESCRIPTION: " is a minimal and lightweight blog and portfolio.",
+};
+
 export const BLOG: Metadata = {
   TITLE: "Blog",
   DESCRIPTION: "A collection of articles on topics I am passionate about.",
