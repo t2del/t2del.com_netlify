@@ -1,54 +1,19 @@
 ---
-// library imports
-import { Icon } from "astro-icon";
+import { cn } from "@lib/utils";
 
-interface Props {
-  text: string;
+type Props = {
   href: string;
-  style: "primary" | "secondary";
-  icon?: {
-    name: string;
-    side: "left" | "right";
-  };
-  isFilled?: boolean;
-  borderVisible?: boolean;
-  classes?: string;
+  external?: boolean;
+  underline?: boolean;
 }
 
-const {
-  text,
-  href,
-  style,
-  icon,
-  isFilled = true,
-  borderVisible = false,
-  classes,
-  ...rest
-} = Astro.props as Props;
+const { href, external, underline = true, ...rest } = Astro.props;
 ---
 
-<a
-  href={href}
-  class:list={[
-    "link",
-    classes,
-    style,
-    { filled: isFilled, bordered: borderVisible },
-  ]}
-  {...rest}
-
->
-  {
-    icon && icon.side === "left" && (
-      <Icon name={icon.name} height="24" width="24" />
-    )
-  }
-
-  <span>{text}</span>
-
-  {
-    icon && icon.side === "right" && (
-      <Icon name={icon.name} height="24" width="24" />
-    )
-  }
+<a 
+  href={href} 
+  target={ external ? "_blank" : "_self" } 
+  class={cn("inline-block decoration-black/15 dark:decoration-white/30 hover:decoration-black/25 hover:dark:decoration-white/50 text-current hover:text-black hover:dark:text-white transition-colors duration-300 ease-in-out", underline && "underline underline-offset-2")}
+  {...rest}>
+  <slot/>
 </a>

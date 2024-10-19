@@ -1,29 +1,33 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
 
 const blog = defineCollection({
-	// Type-check frontmatter using a schema
-	schema: z.object({
-		title: z.string(),
-		description: z.string(),
-		// Transform string to Date object
-		pubDate: z.coerce.date(),
-		updatedDate: z.coerce.date().optional(),
-		heroImage: z.string().optional(),
-		heroImageScroll: z.string().optional(),
-		heroThumb: z.string().optional(),
-		imgalt: z.string().optional(),
-		status: z.string().optional(),
-		author: z.string().optional(),
-		customclass: z.string().optional(),
-	}),
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    draft: z.boolean().optional()
+  }),
 });
 
-const project = defineCollection({
-	// Type-check frontmatter using a schema
-	schema: z.object({
-		title: z.string(),
-		desc: z.string(),
-		heroImage: z.string().optional(),
+const work = defineCollection({
+  type: "content",
+  schema: z.object({
+    company: z.string(),
+    role: z.string(),
+    dateStart: z.coerce.date(),
+    dateEnd: z.union([z.coerce.date(), z.string()]),
+  }),
+});
+
+const projects = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    desc: z.string(),
+    date: z.coerce.date(),
+    draft: z.boolean().optional(),
+    heroImage: z.string().optional(),
 		heroThumb: z.string().optional(),
 		heroImageScroll: z.string().optional(),
 		siteUrl: z.string().optional(),
@@ -31,12 +35,8 @@ const project = defineCollection({
 		platform: z.string().optional(),
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
-		status: z.string().optional(),
-	}),
+		status: z.string().optional()
+  }),
 });
 
-
-export const collections = {
-	'blog': blog,
-	'project': project,
-  };
+export const collections = { blog, work, projects };
