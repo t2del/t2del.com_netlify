@@ -1,6 +1,6 @@
 ---
 title: 'Urban Rehab'
-desc: 'Lorem ipsum dolor sit amet'
+desc: 'Committed to providing a total package of care for all types of clients'
 heroImage: '/project/ur.jpg'
 heroImageScroll: '/project/scrollable/UR.jpg'
 siteUrl:  'https://urbanrehab.com.sg/'
@@ -16,3 +16,4 @@ date: "Mar 26 2024"
 Established in 2008, UrbanRehab is a leading specialist rehabilitation group in Singapore with a patient-centric approach.
 <p>Role: Front-End and Back-end Development</p>
 <p>Platform: WordPress / Elementor Pro</p>
+<p>Azure</p>

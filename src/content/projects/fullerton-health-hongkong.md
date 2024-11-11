@@ -1,6 +1,6 @@
 ---
 title: 'Fullerton Health Hong Kong'
-desc: 'Lorem ipsum dolor sit amet'
+desc: "Founded in 2010, Fullerton Health is a leading vertically integrated healthcare platform in Asia"
 heroImage: '/project/fhg-hk.jpg'
 heroImageScroll: '/project/scrollable/FH-HK.jpg'
 siteUrl:  'https://www.fullertonhealth.com/hk/'
@@ -17,3 +17,4 @@ Founded in 2010, Fullerton Health is a leading vertically integrated healthcare 
 
 <p>Role: Front-End and Back-end Development</p>
 <p>Platform: WordPress / Elementor Pro</p>
+<p>Azure</p>
