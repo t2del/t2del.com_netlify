@@ -6,9 +6,9 @@ heroImageScroll: '/project/scrollable/FH-Group.jpg'
 siteUrl:  'https://www.fullertonhealth.com'
 role: 'Front-End and Back-end Development'
 platform: 'WordPress / Elementor Pro'
-pubDate: 'Mar 06 2023'
+pubDate: 'Nov 06 2024'
 status: 'featured'
-date: "Mar 06 2023"
+date: "Nov 06 2024"
 ---
 
 ![t2del](/project/fhg-group.jpg)

@@ -4,11 +4,11 @@ heroImageScroll: '/project/scrollable/FH-SG.jpg'
 siteUrl:  'https://www.fullertonhealth.com/sg/'
 role: 'Front-End and Back-end Development'
 platform: 'WordPress / Elementor Pro'
-pubDate: 'Mar 06 2023'
+pubDate: 'Nov 06 2024'
 status: 'featured'
 title: 'Fullerton Health Singapore'
 desc: "Founded in 2010, Fullerton Health is a leading vertically integrated healthcare platform in Asia"
-date: "Mar 06 2023"
+date: "Nov 06 2024"
 ---
 
 
