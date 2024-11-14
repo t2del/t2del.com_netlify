@@ -18,7 +18,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/nano.png" } = Astro.props;
+const { title, description, image = "/favicon.ico" } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -201,3 +201,5 @@ function toggleTheme(dark) {
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
   })(window, document, "clarity", "script", "opnhj2zxli");
 </script>
+
+<link rel="sitemap" href="/sitemap-index.xml" />
