@@ -4,7 +4,7 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import { dateRange } from "@lib/utils";
 import Link from "@components/Link.astro";
-import { SITE, WORK, SOCIALS } from "@consts";
+import {  WORK } from "@consts";
 
 const collection = (await getCollection("work"))
   .sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf());
@@ -20,93 +20,31 @@ const work = await Promise.all(
 <PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
   <Container>
     <div class="space-y-10">
-      <h1 class="animate font-semibold text-black dark:text-white">
-        Dennis Macapagal<span class="text-xl">👋🏻</span>
-      </h1>
-      <div class="space-y-16">
-        <section>
-          <article class="space-y-4">
-            <p class="animate">
-              A Full-Stack Developer with more than 10 years of relevant
-              experience in web programming. Bringing up-to-date industry skills
-              in front-end and back-end technology such as PHP, HTML, CSS,
-              JavaScript, MySQL and hands-on experience with CMS such as
-              WordPress. Detail-oriented and motivated to drive project completion
-              on target with exceptional quality and guaranteed client
-              satisfaction.
-            </p>
-            <ul class="flex flex-wrap gap-2" id="">
-              <li class="flex gap-x-2 text-nowrap">PHP</li>
-              <li class="flex gap-x-2 text-nowrap">HTML</li>
-              <li class="flex gap-x-2 text-nowrap">CSS</li>
-              <li class="flex gap-x-2 text-nowrap">JavaScript (jQuery, Ajax, Json)</li>
-              <li class="flex gap-x-2 text-nowrap">Bootstrap</li>
-              <li class="flex gap-x-2 text-nowrap">Sass / Less</li>
-              <li class="flex gap-x-2 text-nowrap">WordPress/ Woocommerce</li>
-              <li class="flex gap-x-2 text-nowrap">MySQL</li>
-              <li class="flex gap-x-2 text-nowrap">OpenCart</li>
-              <li class="flex gap-x-2 text-nowrap">Laravel</li>
-              <li class="flex gap-x-2 text-nowrap">RestAPI</li>
-              <li class="flex gap-x-2 text-nowrap">GIT</li>
-            </ul>
-          </article>
-        </section>
-        <section class="animate space-y-4">
-          <div class="animate font-semibold text-black dark:text-white">
-            Work
+      <div class="space-y-16">  
+        <section class="animate space-y-6">
+          <div class="flex flex-wrap gap-y-2 items-center justify-between">
+            <h5 class="font-semibold text-black dark:text-white notshow blur">
+              Work Experience
+            </h5>
+            <Link href="/work"> See all work </Link>
           </div>
           <ul class="flex flex-col space-y-4">
-            { 
-              work.map(entry => (
-                <li class="animate">
+            {
+              work.map((entry) => (
+                <li>
                   <div class="text-sm opacity-75">
                     {dateRange(entry.data.dateStart, entry.data.dateEnd)}
                   </div>
-                  <div class="font-semibold text-black dark:text-white">
+                  <div class="font-semibold text-black dark:text-white  notshow fromright">
                     {entry.data.company}
                   </div>
-                  <div class="text-sm opacity-75">
-                    {entry.data.role}
-                  </div>
+                  <div class="text-sm opacity-75">{entry.data.role}</div>
                   <article>
                     <entry.Content />
                   </article>
                 </li>
               ))
             }
-          </ul>
-        </section>
-        <section class="animate space-y-4">
-          <h5 class="font-semibold text-black dark:text-white">Let's Connect</h5>
-          <article>
-            <p>
-              If you want to get in touch with me about something or just to say
-              hi, reach out on social media or send me an email.
-            </p>
-          </article>
-          <ul class="flex flex-wrap gap-2">
-            {
-              SOCIALS.map((SOCIAL) => (
-                <li class="flex gap-x-2 text-nowrap">
-                  <Link
-                    href={SOCIAL.HREF}
-                    external
-                    aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}
-                  >
-                    {SOCIAL.NAME}
-                  </Link>
-                  {"/"}
-                </li>
-              ))
-            }
-            <li class="line-clamp-1">
-              <Link
-                href={`mailto:${SITE.EMAIL}`}
-                aria-label={`Email ${SITE.NAME}`}
-              >
-                {SITE.EMAIL}
-              </Link>
-            </li>
           </ul>
         </section>
     </div>
