@@ -1,8 +1,8 @@
 ---
-company: "Fullerton Health PTe LTD"
+company: "FH"
 role: "Web Developer"
 dateStart: "03/03/2023"
-dateEnd: "10/20/2024"
+dateEnd: "Current"
 ---
 
 Experienced Web Developer specializing in creating responsive, cross-browser compatible websites. Proficient in back-end development using PHP, HTML, CSS, JavaScript, JQuery, and Ajax. Focused on website security, optimization, and performance. Experienced in WordPress development, security compliance, and Azure Web Apps deployment.
