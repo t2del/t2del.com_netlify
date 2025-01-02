@@ -13,6 +13,11 @@ export const HOME: Metadata = {
   DESCRIPTION: " is a minimal and lightweight blog and portfolio.",
 };
 
+export const NOTFOUND: Metadata = {
+  TITLE: "404 | Not Found",
+  DESCRIPTION: " Missing something!",
+};
+
 export const CONTACTS: Metadata = {
   TITLE: "Contact Me",
   DESCRIPTION: " is a minimal and lightweight blog and portfolio.",
