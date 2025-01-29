@@ -1,7 +1,7 @@
 import type { Site, Metadata, Socials } from "@types";
 
 export const SITE: Site = {
-  NAME: "T2DEL",
+  NAME: "Dennis Macapagal",
   EMAIL: "macapagal.dennis@gmail.com",
   NUM_POSTS_ON_HOMEPAGE: 3,
   NUM_WORKS_ON_HOMEPAGE: 3,
@@ -9,7 +9,7 @@ export const SITE: Site = {
 };
 
 export const HOME: Metadata = {
-  TITLE: "Home",
+  TITLE: " ",
   DESCRIPTION: " is a minimal and lightweight blog and portfolio.",
 };
 
@@ -19,22 +19,22 @@ export const NOTFOUND: Metadata = {
 };
 
 export const CONTACTS: Metadata = {
-  TITLE: "Contact Me",
+  TITLE: "Contact Me |",
   DESCRIPTION: " is a minimal and lightweight blog and portfolio.",
 };
 
 export const BLOG: Metadata = {
-  TITLE: "Blog",
+  TITLE: "Blog |",
   DESCRIPTION: "A collection of articles on topics I am passionate about.",
 };
 
 export const WORK: Metadata = {
-  TITLE: "Work",
+  TITLE: "Work |",
   DESCRIPTION: "Where I have worked and what I have done.",
 };
 
 export const PROJECTS: Metadata = {
-  TITLE: "Projects",
+  TITLE: "Projects |",
   DESCRIPTION: "A collection of my projects, with links to repositories and demos.",
 };
 
