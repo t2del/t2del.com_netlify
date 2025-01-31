@@ -1,0 +1,29 @@
+---
+export const prerender = false;
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import {  BLOG } from "@consts";
+
+const res = await fetch("https://wp-blog.t2del.com/wp-json/wp/v2/posts");
+const posts = await res.json();
+---
+
+<PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
+	<Container>
+	  <div class="space-y-10">
+		<div class="animate font-semibold text-black dark:text-white">
+		  Blog
+		</div>
+		<ul class="animate flex flex-col gap-4">
+			{
+				posts.map((post: { slug: any; title: { rendered: unknown; }; content: { rendered: unknown; }; }) => (
+					<a href={`/blog/${post.slug}`}>
+						<h2 set:html={post.title.rendered} />
+						<p set:html={post.content.rendered} />
+					</a>
+				))
+			}
+		</ul>
+	  </div>
+	</Container>
+  </PageLayout>

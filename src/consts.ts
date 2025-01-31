@@ -25,7 +25,7 @@ export const CONTACTS: Metadata = {
 
 export const BLOG: Metadata = {
   TITLE: "Blog |",
-  DESCRIPTION: "A collection of articles on topics I am passionate about.",
+  DESCRIPTION: "A collection of blog on topics I am passionate about.",
 };
 
 export const WORK: Metadata = {
