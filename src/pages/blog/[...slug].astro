@@ -1,0 +1,31 @@
+---
+export const prerender = false;
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+
+const { slug } = Astro.params;
+
+let res = await fetch(`https://wp-blog.t2del.com/wp-json/wp/v2/posts?slug=${slug}`);
+let [post] = await res.json();
+
+// The getStaticPaths() is required for static Astro sites.
+// If using SSR, you will not need this function.
+export async function getStaticPaths() {
+  let data = await fetch("https://wp-blog.t2del.com/wp-json/wp/v2/posts");
+  let posts = await data.json();
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post: post },
+  }));
+}
+---
+
+<PageLayout title={`${post.title.rendered} | ` } description={post.title.rendered}>
+  <Container>
+    <article>
+      <h1 set:html={post.title.rendered} />
+      <Fragment set:html={post.content.rendered} />
+    </article>
+  </Container>
+</PageLayout>
