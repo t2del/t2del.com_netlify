@@ -20,7 +20,7 @@ const posts = await res.json();
 					<li>	
 						<a href={`/blog/${post.slug}`}>
 							<h2 set:html={post.title.rendered} />
-							<img src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.full.source_url} alt= title={post.title.rendered} />
+							<img src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.full.source_url} alt={post.title.rendered} title={post.title.rendered} />
 							<Fragment set:html={post.excerpt.rendered} />
 						</a> 
 					</li>
