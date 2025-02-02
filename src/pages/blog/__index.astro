@@ -3,9 +3,11 @@ export const prerender = false;
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import {  BLOG } from "@consts";
+const { page, id } = Astro.props;
 
-const res = await fetch("https://wp-blog.t2del.com//wp-json/wp/v2/posts?_embed");
+const res = await fetch("https://wp-blog.t2del.com//wp-json/wp/v2/posts?_embed&per_page=2&page=1");
 const posts = await res.json();
+console.log(page)
 ---
 
 <PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
@@ -14,6 +16,7 @@ const posts = await res.json();
 		<div class="animate font-semibold text-black dark:text-white">
 		  Blog
 		</div>
+		<h1>{page}: {id}</h1>
 		<ul class="animate flex flex-col gap-4">
 			{
 				posts.map((post: { slug: any; title: { rendered: unknown; }; _embedded: { [x: string]: { [x: string]: { media_details: { sizes: { full: { source_url: string | null | undefined; }; }; }; }; }; }; excerpt: { rendered: any; }; }) => (
