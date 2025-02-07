@@ -3,15 +3,46 @@ export const prerender = false;
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import {  BLOG } from "@consts";
+import Pagination from "@components/Pagination.astro";
 
-const { page = 1 } = Astro.params;
+const { page = 1, per_page = 2 } = Astro.params;
+let { url_prev, url_next } = Astro.params;
 
-let res = await fetch(`https://wp-blog.t2del.com/wp-json/wp/v2/posts?_embed&per_page=2&page=${page}`);
+
+let res = await fetch(`https://wp-blog.t2del.com/wp-json/wp/v2/posts?_embed&per_page=${per_page}&page=${page}`);
 let posts = await res.json();
 
 if (posts.data) {
   return Astro.rewrite("/404-blog")
-} 
+}
+const response_count = await fetch(`https://wp-blog.t2del.com/wp-json/wp/v2/posts?_embed`);
+const result_count = await response_count.json();
+// console.log(result_count.length)
+let pagedp = Math.ceil(result_count.length / per_page);
+let pagedn = Math.ceil(result_count.length / per_page);
+let prev = Number(page);
+let next = Number(page);
+let pages = Number(page);
+
+
+if(pagedp == pages) {
+	prev = pagedp - 1;
+	next = pagedn;
+	url_prev = '/blog/'+prev;
+	url_next = '';
+}
+
+if(Number(pages) < Number(pagedp)) {
+	prev = pages - 1;
+	next = pages + 1;
+	
+	url_prev = '/blog/'+prev;
+	url_next = '/blog/'+next;
+	if(prev == 0) {
+		prev = 1;
+		url_prev = '';
+	}
+}
 ---
 
 <PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
@@ -20,7 +51,7 @@ if (posts.data) {
 		<div class="animate font-semibold text-black dark:text-white">
 		  Blog 
 		</div>
-		<ul class="animate flex flex-col gap-4">
+		<ul class="animate flex flex-col-2 gap-4">
 
 			{
 				posts.map((post: { slug: any; title: { rendered: unknown; }; _embedded: { [x: string]: { [x: string]: { media_details: { sizes: { full: { source_url: string | null | undefined; }; }; }; }; }; }; excerpt: { rendered: any; }; }) => (
@@ -34,6 +65,8 @@ if (posts.data) {
 				))
 			}
 		</ul>
+		<Pagination prevUrl={url_prev} nextUrl={url_next} />
+		<!-- <Pagination prevUrl=/blog/  /> -->
 	  </div>
 	</Container>
   </PageLayout>
