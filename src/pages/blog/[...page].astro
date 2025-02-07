@@ -18,8 +18,8 @@ if (posts.data) {
 const response_count = await fetch(`https://wp-blog.t2del.com/wp-json/wp/v2/posts?_embed`);
 const result_count = await response_count.json();
 // console.log(result_count.length)
-let pagedp = Math.ceil(result_count.length / per_page);
-let pagedn = Math.ceil(result_count.length / per_page);
+let pagedp = Math.ceil(result_count.length / Number(per_page));
+let pagedn = Math.ceil(result_count.length / Number(per_page));
 let prev = Number(page);
 let next = Number(page);
 let pages = Number(page);
