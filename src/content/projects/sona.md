@@ -9,7 +9,7 @@ pubDate: 'Jul 08 2022'
 status: 'active'
 date: "Mar 26 2024"
 ---
-
+![t2del](/project/sona.jpg)
 CAHAYA ELECTRONICS PTE LTD was founded in 1994 and takes care of the Sona brand in Singapore. Since 1994, Cahaya Electronics has rapidly grown into a diversified electronics company offering a broad range of products and services.
 
 It takes pride in providing quality products and reliable services. It is more well-known in Singapore for its range of small appliances and the affordability of its products.
