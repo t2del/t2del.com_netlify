@@ -3,10 +3,11 @@ export const prerender = false;
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import BackToPrev from "@components/BackToPrev.astro";
+import { SITE } from "@consts";
 
 const { slug } = Astro.params;
 
-const res = await fetch(`https://wp-blog.t2del.com/wp-json/wp/v2/posts?slug=${slug}&_embed`);
+const res = await fetch(`${SITE.WP_BLOG_POST}?slug=${slug}&_embed`);
 const [post] = await res.json();
 if (post == undefined) {
   return Astro.rewrite("/404-blog")

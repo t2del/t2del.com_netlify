@@ -5,6 +5,8 @@ export type Site = {
   NUM_WORKS_ON_HOMEPAGE: number;
   NUM_PROJECTS_ON_HOMEPAGE: number;
   PHONE_NUM: number;
+  WP_BLOG_LIST: string;
+  WP_BLOG_POST: string;
 };
 
 export type Metadata = {
