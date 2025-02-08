@@ -1,7 +1,11 @@
 ---
+const { containerWidth = 1440 } = Astro.props;
 
+interface Props {
+  containerWidth: string;
+}
 ---
 
-<div class="mx-auto max-w-[1440px] px-5">
+<div class={`mx-auto max-w-[${containerWidth}px] px-5`}>  
   <slot />
 </div>
