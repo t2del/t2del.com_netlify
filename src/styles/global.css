@@ -76,3 +76,7 @@ html.scrolled #back-to-top {
 .hide {
   display: none !important;
 }
+
+ul {
+  padding-inline-start: 0;
+}
