@@ -45,7 +45,7 @@ if(Number(pages) < Number(pagedp)) {
 		url_prev = '';
 	}
 }
-console.log(posts)
+
 ---
 
 <PageLayout title={BLOG.TITLE} description={BLOG.DESCRIPTION}>
@@ -59,7 +59,7 @@ console.log(posts)
 						<div class="flex flex-col items-center gap-6 p-7 md:flex-row md:gap-8 rounded-2xl">
 							<div>
 								<a href={`/${post.slug}`}>
-									<img class="size-48 shadow-xl rounded-md" alt={post.title.rendered} src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.full.source_url} />
+									<img class="size-48 shadow-xl rounded-md" src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.full.source_url} />
 								</a>
 							</div>
 							<div class="flex items-center md:items-start">
