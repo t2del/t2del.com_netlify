@@ -7,7 +7,7 @@ import Pagination from "@components/Pagination.astro";
 import { SITE } from "@consts";
 import  FormattedDate2  from "@components/FormattedDate2.astro";
 
-const { page = 1, per_page = 2 } = Astro.params;
+const { page = 1, per_page = SITE.NUM_POSTS_ON_HOMEPAGE } = Astro.params;
 let { url_prev, url_next } = Astro.params;
 
 
@@ -19,7 +19,7 @@ if (posts.data) {
 }
 const response_count = await fetch(`${SITE.WP_BLOG_LIST}`);
 const result_count = await response_count.json();
-// console.log(result_count.length)
+
 let pagedp = Math.ceil(result_count.length / Number(per_page));
 let pagedn = Math.ceil(result_count.length / Number(per_page));
 let prev = Number(page);
@@ -52,11 +52,10 @@ if(Number(pages) < Number(pagedp)) {
 	<Container containerWidth="mx-auto max-w-[1200px] px-5">
 	  <div class="space-y-10">
 		<div class="animate font-semibold text-black dark:text-white">Blog</div>
-		<ul class="animate flex flex-col-2 gap-2">
+		<ul class="animate flex flex-col gap-2">
 			{
 				posts.map((post: { slug: any; title: { rendered: unknown; }; _embedded: { [x: string]: { [x: string]: { media_details: { sizes: { full: { source_url: string | null | undefined; }; }; }; }; }; }; excerpt: { rendered: unknown; }; date: any; }) => (
-					<li class="flex flex-col items-center gap-6 p-5 md:flex-row md:gap-8 rounded-2xl">
-						{/* <div class="flex flex-col items-center gap-6 p-7 md:flex-row md:gap-8 rounded-2xl"> */}
+					<li class="flex flex-col items-center gap-6 p-5 md:flex-row md:gap-8 rounded-2xl">						
 							<div>
 								<a href={`/${post.slug}`}>
 									<img class="size-52 shadow-xl rounded-md" src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.full.source_url} alt={`${post.title.rendered} | Blog thumb` } title={`${post.title.rendered} | Blog thumb` } loading="eager" />
@@ -71,7 +70,6 @@ if(Number(pages) < Number(pagedp)) {
 									</span>
 								</a>
 							</div>
-						{/* </div> */}
 					</li>
 				))
 			}
