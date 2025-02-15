@@ -7,8 +7,8 @@ export const SITE: Site = {
   NUM_WORKS_ON_HOMEPAGE: 3,
   NUM_PROJECTS_ON_HOMEPAGE: 4,
   PHONE_NUM: 88140252,
-  WP_BLOG_LIST: "https://wp-blog.t2del.com/wp-json/wp/v2/posts?_embed",
-  WP_BLOG_POST: "https://wp-blog.t2del.com/wp-json/wp/v2/posts",
+  WP_BLOG_LIST: "https://denn-block.instawp.xyz/wp-json/wp/v2/posts?_embed",
+  WP_BLOG_POST: "https://denn-block.instawp.xyz/wp-json/wp/v2/posts",
 };
 
 export const HOME: Metadata = {
