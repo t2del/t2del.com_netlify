@@ -15,7 +15,7 @@ const { entry } = Astro.props;
     <div class="font-semibold" style={`view-transition-name: vt-post-featured-title-${entry.slug};`}>
       {entry.data.title}
     </div>
-    <div class="text-sm">
+    <div class="text-sm" style={`view-transition-name: vt-post-featured-excerpt-${entry.slug};`}>
       {entry.data.desc}
     </div>
   </div>
