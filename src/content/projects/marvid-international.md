@@ -9,7 +9,7 @@ pubDate: 'Jul 08 2022'
 status: 'active'
 date: "Mar 26 2024"
 ---
-![t2del](/project/marvid.jpg)
+
 The founders of Marvid International began business with pelican in 1992, originally as a sub-contractor for the assembly of flashlights.
 
 In 1998, on the recommendation of Pelican’s senior management they decided to leverage on their combined knowledge and experiences in wholesale & retail business to set up Marvid International for the purpose of distributing Pelican products in Singapore.

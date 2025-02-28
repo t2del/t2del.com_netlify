@@ -10,5 +10,5 @@ status: 'active'
 date: "Mar 26 2024"
 ---
 
-![t2del](/project/nph.jpg)
+
 New Peng Hiang was wisely named by the young Mr Khoo, who is the current Managing Director of the company. With his careful thoughts, every character is given a meaning and is aligned with the company’s value proposition.

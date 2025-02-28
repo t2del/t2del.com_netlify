@@ -9,7 +9,7 @@ pubDate: 'Jul 08 2022'
 status: 'active'
 date: "Mar 26 2024"
 ---
-![t2del](/project/spm.jpg)
+
 SIS was founded 60 years ago by my father, Mr S I Samy. It had humble beginnings at the old “Tekka” wet market in the early 60s. Very soon, it became a household name known for its quality of its fresh meat. In no small part, this was due to the hard work of its founder who spared no effort in ensuring SIS was synonymous with the best and freshest meat products.
 
 

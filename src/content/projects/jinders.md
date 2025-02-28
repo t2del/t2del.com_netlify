@@ -9,7 +9,7 @@ pubDate: 'Jul 08 2022'
 status: 'active'
 date: "Mar 26 2024"
 ---
-![t2del](/project/jinders.jpg)
+
 
 About Jinder’s & Ms. K Kaur
 A leading store for Indian fusion-wear and fashion in one of Singapore’s most vibrant districts, Little India, Jinder’s specializes in exclusive womenswear collections from bridal couture, Indian fashion pret-a-porter and haute couture, made to measure classic outfits and sarees, to stunning fashion jewelry.
