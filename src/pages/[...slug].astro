@@ -4,6 +4,7 @@ import PageLayout from "@layouts/PageLayoutWP.astro";
 import Container from "@components/Container.astro";
 import BackToPrev from "@components/BackToPrev.astro";
 import { SITE } from "@consts";
+import  FormattedDate2  from "@components/FormattedDate2.astro";
 
 const { slug } = Astro.params;
 
@@ -22,8 +23,10 @@ if (post == undefined) {
     </BackToPrev>
     <article class="blog-single">
       <h1 set:html={post.title.rendered} />
-      <img src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.full.source_url} alt={post.title.rendered} title={post.title.rendered} />
-      <Fragment set:html={post.content.rendered} />
+      <img src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.full.source_url} alt={post.title.rendered} title={post.title.rendered} style={`view-transition-name: vt-post-featured-image-${post.slug};`}  />
+      <hr>
+      <span class="post-meta"><FormattedDate2 date={post.date} /></span>
+      <div class="content-populated" set:html={post.content.rendered}></div>
     </article>
   </Container>
 </PageLayout>

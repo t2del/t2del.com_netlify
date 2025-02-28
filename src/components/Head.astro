@@ -58,6 +58,24 @@ const { title, description, image = "/favicon.ico" } = Astro.props;
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 
+<meta name="view-transition" content="same-origin" />
+<script is:inline>
+	function handleClick(e) {
+		// Fallback for browsers that don't support this API:
+		if (!document.startViewTransition) {
+		  updateTheDOMSomehow();
+		  return;
+		}
+	  
+		// With a View Transition:
+		document.startViewTransition(() => updateTheDOMSomehow());
+	  }
+</script>
+<style>
+	@view-transition {
+		navigation: auto;
+	}
+</style>
 
 <script>
   import type { TransitionBeforeSwapEvent } from "astro:transitions/client";
