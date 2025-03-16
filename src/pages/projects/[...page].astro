@@ -4,7 +4,7 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import ArrowCard from "@components/ArrowCard.astro";
 import Pagination from "@components/Pagination.astro";
-import {  PROJECTS } from "@consts";
+import {  PROJECTS, SITE } from "@consts";
 import type { GetStaticPathsOptions, Page } from 'astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
 
@@ -14,7 +14,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()).reverse();
   	
 	// Return a paginated collection of paths for all posts
-  	return paginate(project, { pageSize: 6 });
+  	return paginate(project, { pageSize: SITE.NUM_PROJECTS_ON_HOMEPAGE });
 }
 
 const posts_project_featured = (await getCollection('projects'))

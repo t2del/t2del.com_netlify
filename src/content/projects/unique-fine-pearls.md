@@ -2,6 +2,7 @@
 title: 'Unique Fine Pearls'
 desc: 'Lorem ipsum dolor sit amet'
 heroImage: '/project/ufp.jpg'
+heroImageScroll: '/project/ufp.jpg'
 siteUrl:  'https://www.uniquefpgc.com/'
 role: 'Front-End and Back-end Development'
 platform: 'OpenCart'

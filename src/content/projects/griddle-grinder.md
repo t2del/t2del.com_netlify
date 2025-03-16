@@ -2,6 +2,7 @@
 title: 'Griddle & Grinder'
 desc: 'Lorem ipsum dolor sit amet'
 heroImage: '/project/griddler.jpg'
+heroImageScroll: '/project/griddler.jpg'
 siteUrl:  'https://www.griddlerngrinder.com/'
 role: 'Front-End and Back-end Development'
 platform: 'OpenCart'

@@ -53,10 +53,17 @@ const { Content } = await project.render();
     </div>    
     <article class="">
       <div class="featured-image">
-        <img src={project.data.heroImage} style={`view-transition-name: vt-post-featured-image-${project.slug};`} alt={project.data.title}>
+        <img src={project.data.heroImageScroll} style={`view-transition-name: vt-post-featured-image-${project.slug};`} alt={project.data.title}>
       </div>
       <div class="content" style={`view-transition-name: vt-post-featured-excerpt-${project.slug};`}><Content /></div>
       
     </article>
   </Container>
 </PageLayout>
+
+<style>
+  .featured-image {
+    height: 450px;
+    overflow: auto;
+  }
+</style>

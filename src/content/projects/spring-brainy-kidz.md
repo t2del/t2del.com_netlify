@@ -2,6 +2,7 @@
 title: 'Spring Brainy Kidz'
 desc: 'Lorem ipsum dolor sit amet'
 heroImage: '/project/sbk.jpg'
+heroImageScroll: '/project/sbk.jpg'
 siteUrl:  'https://springbrainykidz.com/'
 role: 'Front-End and Back-end Development'
 platform: 'Wordpress / Woocommerce'

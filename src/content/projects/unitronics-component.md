@@ -2,6 +2,7 @@
 title: 'Unitronics Component'
 desc: 'Lorem ipsum dolor sit amet'
 heroImage: '/project/unitronic.jpg'
+heroImageScroll: '/project/unitronic.jpg'
 siteUrl:  'https://www.unitronic.com.sg/'
 role: 'Front-End and Back-end Development'
 platform: 'OpenCart'

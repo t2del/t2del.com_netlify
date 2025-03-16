@@ -9,13 +9,13 @@ const { entry } = Astro.props;
 ---
 
 <a href={`/${entry.collection}/${entry.slug}`} class="relative group flex flex-nowrap py-3 px-4 pr-10 rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
-  <img src={entry.data.heroImage} alt={entry.data.title} width="250" height="60" class="relative group flex  flex-nowrap rounded border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out" loading="eager"  style={`view-transition-name: vt-post-featured-image-${entry.slug}; object-fit:contain`}>
+  <img src={entry.data.heroImage} alt={entry.data.title} width="250" height="60" class="custom-img relative group flex  flex-nowrap rounded border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out" loading="lazy"  style={`view-transition-name: vt-post-featured-image-${entry.slug}; object-fit:contain`}>
 
-  <div class="flex flex-col flex-1 truncate pl-7">
+  <div class="flex flex-col flex-1  pl-7">
     <div class="font-semibold" style={`view-transition-name: vt-post-featured-title-${entry.slug};`}>
       {entry.data.title}
     </div>
-    <div class="text-sm" style={`view-transition-name: vt-post-featured-excerpt-${entry.slug};`}>
+    <div class="text-sm description" style={`view-transition-name: vt-post-featured-excerpt-${entry.slug};`}>
       {entry.data.desc}
     </div>
   </div>
@@ -27,3 +27,22 @@ const { entry } = Astro.props;
     <polyline points="12 5 19 12 12 19" class="-translate-x-1 group-hover:translate-x-0 transition-transform duration-300 ease-in-out" />
   </svg>
 </a>
+
+
+<style>
+  .flex-col {
+    justify-content: space-evenly;
+  }
+  .description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+  @media only screen and (max-width: 600px) {
+    img.custom-img  {
+      width: 100%;
+      max-width: 180px;
+    }
+  }
+</style>

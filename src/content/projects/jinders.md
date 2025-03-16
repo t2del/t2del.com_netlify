@@ -2,6 +2,7 @@
 title: 'Jinders'
 desc: 'Jinders Pte Ltd has debuted as a premier Indian fashion house in 1995, conceptualised and established by Madam Kuljinder Kaur. Her keen interest in fashion and distinct personal style & passion brought forth a shop that endeavours in bridal couture, Indian fashion pret-a-porter and haute couture, made to measure classic outfits and sarees, as well as stunning fashion jewellery.'
 heroImage: '/project/jinders.jpg'
+heroImageScroll: '/project/jinders.jpg'
 siteUrl:  'https://www.jinders.com.sg/'
 role: 'Front-End and Back-end Development'
 platform: 'Wordpress / Woocommerce'

@@ -2,6 +2,7 @@
 title: 'Begen'
 desc: 'Lorem ipsum dolor sit amet'
 heroImage: '/project/begen.jpg'
+heroImageScroll: '/project/begen.jpg'
 siteUrl:  'https://www.begen.sg/'
 role: 'Front-End and Back-end Development'
 platform: 'OpenCart'
