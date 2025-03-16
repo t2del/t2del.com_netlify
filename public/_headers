@@ -1,7 +1,7 @@
 /*
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
-  Content-Security-Policy: default-src https: 'self' 'unsafe-inline' 'script-src-elem'
+  Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' www.googletagmanager.com; img-src 'self' www.googletagmanager.com; connect-src 'self' www.googletagmanager.com"
   X-Content-Type-Options: nosniff
   Referrer-Policy: same-origin
   Permissions-Policy: geolocation=(self "https://example.com"), microphone=()
