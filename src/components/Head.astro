@@ -58,24 +58,7 @@ const { title, description, image = "/favicon.ico" } = Astro.props;
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 
-<meta name="view-transition" content="same-origin" />
-<script is:inline>
-	function handleClick(e) {
-		// Fallback for browsers that don't support this API:
-		if (!document.startViewTransition) {
-		  updateTheDOMSomehow();
-		  return;
-		}
-	  
-		// With a View Transition:
-		document.startViewTransition(() => updateTheDOMSomehow());
-	  }
-</script>
-<style>
-	@view-transition {
-		navigation: auto;
-	}
-</style>
+
 
 <script>
   import type { TransitionBeforeSwapEvent } from "astro:transitions/client";
@@ -211,17 +194,40 @@ function toggleTheme(dark) {
 </script>
 
 <!-- Google tag (gtag.js) -->
-<script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-JZRLM8LG36"></script>
-<script is:inline type="module" >
-	document.addEventListener('astro:page-load', () => {
-		// <!-- paste GA4 Tracking here -->
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+<!-- <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-JZRLM8LG36"></script>
+<script is:inline type="module" > -->
+	<!-- // document.addEventListener('astro:page-load', () => {
+	// 	//  paste GA4 Tracking here -->
+	<!-- // 	window.dataLayer = window.dataLayer || []; -->
+	<!-- // 	function gtag(){dataLayer.push(arguments);} -->
+	<!-- // 	gtag('js', new Date()); -->
 
-		gtag('config', 'G-JZRLM8LG36');
-		// <!-- paste GA4 Tracking here -->
-	}, ); 
+	<!-- // 	gtag('config', 'G-JZRLM8LG36'); -->
+	<!-- // 	// paste GA4 Tracking here -->
+	<!-- // }, );  -->
+<!-- </script> -->
+ <!-- Google tag (gtag.js) -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-JZRLM8LG36"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JZRLM8LG36');
 </script>
 
 <link rel="sitemap" href="/sitemap-index.xml" />
+
+<meta name="view-transition" content="same-origin" />
+<script is:inline>
+	function handleClick(e) {
+		// Fallback for browsers that don't support this API:
+		if (!document.startViewTransition) {
+		  updateTheDOMSomehow();
+		  return;
+		}
+	  
+		// With a View Transition:
+		document.startViewTransition(() => updateTheDOMSomehow());
+	  }
+</script>

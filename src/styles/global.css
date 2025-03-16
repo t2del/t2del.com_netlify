@@ -80,3 +80,7 @@ html.scrolled #back-to-top {
 ul {
   padding-inline-start: 0;
 }
+
+@view-transition {
+  navigation: auto;
+}
