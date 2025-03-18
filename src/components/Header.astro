@@ -4,70 +4,56 @@ import { SITE, SOCIALS } from "@consts";
 ---
 <header id="cs-navigation">
   <div class="cs-container">
-      <!--Nav Logo-->
-      <!--Logo is turned white in the css with a filter on dark mode-->
-      <a href="/" class="cs-logo" aria-label="back to home">{SITE.NAME}</a>
-      <!--Navigation List-->
-      <nav class="cs-nav" role="navigation">
-          <!--Mobile Nav Toggle-->
-          <button class="cs-toggle" aria-label="mobile menu toggle">
-              <div class="cs-box" aria-hidden="true">
-                  <span class="cs-line cs-line1" aria-hidden="true"></span>
-                  <span class="cs-line cs-line2" aria-hidden="true"></span>
-                  <span class="cs-line cs-line3" aria-hidden="true"></span>
-              </div>
-          </button>
-          <div class="cs-ul-wrapper">
-              <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
-                  <li class="cs-li">
-                      <a href="/about" class="cs-li-link">About</a>
-                  </li>
-                  <li class="cs-li cs-dropdown hide" tabindex="0">
-                      <span class="cs-li-link">
-                          Services
-                          <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down-gold.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
-                      </span>
-                      <ul class="cs-drop-ul">
-                          <li class="cs-drop-li">
-                              <a href="" class="cs-li-link cs-drop-link">Registration</a>
-                          </li>
-                          <li class="cs-drop-li">
-                              <a href="" class="cs-li-link cs-drop-link">Our Classes</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li class="cs-li">
-                    <a href="/work" class="cs-li-link">Work</a>
-                </li>
-                  <li class="cs-li">
-                      <a href="/projects" class="cs-li-link">Projects</a>
-                  </li>
-                  <li class="cs-li">
-                    <a href="/blog" class="cs-li-link">Blog</a>
-                </li>
-              </ul>
-              <div class="cs-social-mobile">
-                {
-                  SOCIALS.map((SOCIAL) => (
-                    <a
-                      href={SOCIAL.HREF} 
-                      aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}
-                      class="cs-social-link"
-                      set:html={SOCIAL.ICON}
-                    >
-                    </a>
-                  ))
-                }
+    <!--Nav Logo-->
+    <!--Logo is turned white in the css with a filter on dark mode-->
+    <a href="/" class="cs-logo" aria-label="back to home">{SITE.NAME}</a>
+    <!--Navigation List-->
+    <nav class="cs-nav" role="navigation">
+        <!--Mobile Nav Toggle-->
+        <button class="cs-toggle" aria-label="mobile menu toggle">
+            <div class="cs-box" aria-hidden="true">
+                <span class="cs-line cs-line1" aria-hidden="true"></span>
+                <span class="cs-line cs-line2" aria-hidden="true"></span>
+                <span class="cs-line cs-line3" aria-hidden="true"></span>
             </div>
-          </div>
-      </nav>
-      <div class="cs-contact-group">
-          <a href={`tel:${SITE.PHONE_NUM}`} class="cs-phone">
-            <span set:html={SITE.ICON}></span> {SITE.PHONE_NUM}
-          </a>
-          <div class="cs-social">
-            {
-              SOCIALS.map((SOCIAL) => (
+        </button>
+        <div class="cs-ul-wrapper">
+            <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
+                <li class="cs-li">
+                    <a href="/about" class="cs-li-link">About</a>
+                </li>
+                <li class="cs-li cs-dropdown hide" tabindex="0">
+                    <span class="cs-li-link">
+                        Services
+                        <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down-gold.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
+                    </span>
+                    <ul class="cs-drop-ul">
+                        <li class="cs-drop-li">
+                            <a href="" class="cs-li-link cs-drop-link">Registration</a>
+                        </li>
+                        <li class="cs-drop-li">
+                            <a href="" class="cs-li-link cs-drop-link">Our Classes</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="cs-li">
+                  <a href="/work" class="cs-li-link">Work</a>
+                </li>
+                <li class="cs-li">
+                    <a href="/projects" class="cs-li-link">Projects</a>
+                </li>
+                <li class="cs-li">
+                  <a href="/blog" class="cs-li-link">Blog</a>
+                </li>
+                <li class="cs-li">
+                  <!-- Elfsight Website Translator | Untitled Website Translator -->
+                  <script src="https://static.elfsight.com/platform/platform.js" async></script>
+                  <div class="elfsight-app-79b29ef8-9c35-4bbd-813e-a27b8f354217" data-elfsight-app-lazy></div>
+                </li>
+            </ul>
+            <div class="cs-social-mobile">
+              {
+                SOCIALS.map((SOCIAL) => (
                   <a
                     href={SOCIAL.HREF} 
                     aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}
@@ -75,10 +61,29 @@ import { SITE, SOCIALS } from "@consts";
                     set:html={SOCIAL.ICON}
                   >
                   </a>
-              ))
-            }
+                ))
+              }
           </div>
-      </div>
+        </div>
+    </nav>
+    <div class="cs-contact-group">
+        <a href={`tel:${SITE.PHONE_NUM}`} class="cs-phone">
+          <span set:html={SITE.ICON}></span> {SITE.PHONE_NUM}
+        </a>
+        <div class="cs-social">
+          {
+            SOCIALS.map((SOCIAL) => (
+                <a
+                  href={SOCIAL.HREF} 
+                  aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}
+                  class="cs-social-link"
+                  set:html={SOCIAL.ICON}
+                >
+                </a>
+            ))
+          }
+        </div>
+    </div>
   </div>
 </header>
 
