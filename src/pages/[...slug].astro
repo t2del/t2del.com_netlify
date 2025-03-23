@@ -18,15 +18,29 @@ if (post == undefined) {
 
 <PageLayout title={`${post.title.rendered} | Blog |` } description={post.title.rendered} wpid={post.id}>
   <Container containerWidth="mx-auto max-w-[1440px] px-5">
-    <BackToPrev href="/blog/">
-      Back to Blog
-    </BackToPrev>
+    
     <article class="blog-single">
-      <h1 set:html={post.title.rendered} />
+      
       <img src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.full.source_url} alt={post.title.rendered} title={post.title.rendered} style={`view-transition-name: vt-post-featured-image-${post.slug};`}  />
       <hr>
+      <h1 set:html={post.title.rendered} />
       <span class="post-meta"><FormattedDate2 date={post.date} /></span>
       <div class="content-populated" set:html={post.content.rendered}></div>
     </article>
+    <BackToPrev href="/blog/">Back to Blog</BackToPrev>
   </Container>
 </PageLayout>
+
+<style is:inline>
+ main {
+  padding-top: 4rem;
+ }
+ hr {
+  margin: 0.5rem 0;
+  border: 0;
+  border-top: 1px solid #e2e8f0;
+  width: 100%;
+  height: 1px;
+  background-color: #e2e8f0;
+ }
+</style>
