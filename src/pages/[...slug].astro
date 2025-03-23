@@ -14,7 +14,7 @@ const [post] = await res.json();
 if (post == undefined) {
   return Astro.rewrite("/404-blog")
 }
-console.log(post._embedded) // Debugging the post object
+// console.log(post._embedded) // Debugging the post object
 ---
 
 <PageLayout title={`${post.title.rendered} | Blog |` } description={post.title.rendered} wpid={post.id}>
