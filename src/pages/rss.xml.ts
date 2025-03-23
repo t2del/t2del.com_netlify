@@ -7,11 +7,23 @@ type Context = {
 }
 
 export async function GET(context: Context) {
+// Fetch blog posts from WordPress
+  const blogPosts = await fetch("https://your-wordpress-site.com/wp-json/wp/v2/posts")
+    .then(res => res.json())
+    .then(posts => posts.map((post: any) => ({
+      data: {
+        title: post.title.rendered,
+        desc: post.excerpt.rendered,
+        date: post.date,
+      },
+      collection: "blog",
+      slug: post.slug,
+    })));
 
   const projects = (await getCollection("projects"))
     .filter(project => !project.data.draft);
 
-  const items = [...projects]
+  const items = [...projects, ...blogPosts]
     .sort((a, b) => new Date(b.data.date).valueOf() - new Date(a.data.date).valueOf());
 
   return rss({
