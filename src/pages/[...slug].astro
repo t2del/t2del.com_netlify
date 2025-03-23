@@ -14,14 +14,16 @@ const [post] = await res.json();
 if (post == undefined) {
   return Astro.rewrite("/404-blog")
 }
+console.log(post._embedded) // Debugging the post object
 ---
 
 <PageLayout title={`${post.title.rendered} | Blog |` } description={post.title.rendered} wpid={post.id}>
   <Container containerWidth="mx-auto max-w-[1440px] px-5">
     
     <article class="blog-single">
-      
-      <img src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.full.source_url} alt={post.title.rendered} title={post.title.rendered} style={`view-transition-name: vt-post-featured-image-${post.slug};`}  />
+
+      <img src={post._embedded?.['wp:featuredmedia']?.['0']?.media_details?.sizes?.full?.source_url || '/placeholder.jpg' } alt={post.title.rendered} title={post.title.rendered} style={`view-transition-name: vt-post-featured-image-${post.slug};`}  />
+      <!-- <img src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.full.source_url } alt={post.title.rendered} title={post.title.rendered} style={`view-transition-name: vt-post-featured-image-${post.slug};`}  /> -->
       <hr>
       <h1 set:html={post.title.rendered} />
       <span class="post-meta"><FormattedDate2 date={post.date} /></span>
@@ -33,10 +35,10 @@ if (post == undefined) {
 
 <style is:inline>
  main {
-  padding-top: 4rem;
+  padding-top: 0;
  }
  hr {
-  margin: 0.5rem 0;
+  margin: 2rem 0;
   border: 0;
   border-top: 1px solid #e2e8f0;
   width: 100%;
