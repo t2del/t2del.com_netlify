@@ -10,7 +10,7 @@ import { SITE, SOCIALS } from "@consts";
     <!--Navigation List-->
     <nav class="cs-nav" role="navigation">
         <!--Mobile Nav Toggle-->
-        <button class="cs-toggle" aria-label="mobile menu toggle">
+        <button class="cs-toggle font-semibold text-black dark:text-white" aria-label="mobile menu toggle">
             <div class="cs-box" aria-hidden="true">
                 <span class="cs-line cs-line1" aria-hidden="true"></span>
                 <span class="cs-line cs-line2" aria-hidden="true"></span>
@@ -20,10 +20,10 @@ import { SITE, SOCIALS } from "@consts";
         <div class="cs-ul-wrapper">
             <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
                 <li class="cs-li">
-                    <a href="/about" class="cs-li-link">About</a>
+                    <a href="/about" class="cs-li-link font-semibold text-black dark:text-white">About</a>
                 </li>
                 <li class="cs-li cs-dropdown hide" tabindex="0">
-                    <span class="cs-li-link">
+                    <span class="cs-li-link font-semibold text-black dark:text-white">
                         Services
                         <img class="cs-drop-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons/down-gold.svg" alt="dropdown icon" width="15" height="15" decoding="async" aria-hidden="true">
                     </span>
@@ -37,13 +37,13 @@ import { SITE, SOCIALS } from "@consts";
                     </ul>
                 </li>
                 <li class="cs-li">
-                  <a href="/work" class="cs-li-link">Work</a>
+                  <a href="/work" class="cs-li-link font-semibold text-black dark:text-white">Work</a>
                 </li>
                 <li class="cs-li">
-                    <a href="/projects" class="cs-li-link">Projects</a>
+                    <a href="/projects" class="cs-li-link font-semibold text-black dark:text-white">Projects</a>
                 </li>
                 <li class="cs-li">
-                  <a href="/blog" class="cs-li-link">Blog</a>
+                  <a href="/blog" class="cs-li-link font-semibold text-black dark:text-white">Blog</a>
                 </li>
             </ul>
             <div class="cs-social-mobile">
@@ -139,6 +139,9 @@ import { SITE, SOCIALS } from "@consts";
 <--- -------------------------- -*/
 /* Mobile - 1023px */
 @media only screen and (max-width: 63.9375rem) {
+  .dark #cs-navigation:before  {
+    background: rgb(28 25 23 / 0.25)
+  }
   body.cs-open {
     overflow: hidden;
   }
@@ -239,6 +242,12 @@ import { SITE, SOCIALS } from "@consts";
     position: relative;
     z-index: 10;
     transition: transform 0.6s;
+  }
+  .dark #cs-navigation .cs-toggle {
+    background: #ccc;
+  }
+  .dark #cs-navigation .cs-line {
+    background-color: #1a1a1a;
   }
   #cs-navigation .cs-nav {
     /* sends it to the right in the 3rd position */
@@ -603,6 +612,9 @@ import { SITE, SOCIALS } from "@consts";
     border-radius: 0;
     top: 0;
   }
+  .dark #cs-navigation  {
+    background-color: rgb(28 25 23 / 0.25)
+  }
   #cs-navigation {
     width: 94%;
     max-width: 90rem;
@@ -694,7 +706,7 @@ import { SITE, SOCIALS } from "@consts";
     text-decoration: none;
     width: 2rem;
     height: 2rem;
-    background-color: #f7f7f7;
+    /* background-color: #f7f7f7; */
     border-radius: 50%;
     display: flex;
     justify-content: center;
