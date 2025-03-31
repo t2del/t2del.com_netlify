@@ -140,7 +140,8 @@ import { SITE, SOCIALS } from "@consts";
 /* Mobile - 1023px */
 @media only screen and (max-width: 63.9375rem) {
   .dark #cs-navigation:before  {
-    background: rgb(28 25 23 / 0.25)
+    background-color: rgb(45 45 45);
+    box-shadow: none;
   }
   body.cs-open {
     overflow: hidden;
@@ -327,6 +328,9 @@ import { SITE, SOCIALS } from "@consts";
   #cs-navigation .cs-line3 {
     bottom: 0;
     transition: bottom 0.3s, opacity 0.3s;
+  }
+  .dark #cs-navigation .cs-ul-wrapper {
+    background-color: rgb(45 45 45);
   }
   #cs-navigation .cs-ul-wrapper {
     width: 100%;
