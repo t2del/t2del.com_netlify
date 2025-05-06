@@ -17,7 +17,7 @@ let posts = await res.json();
 if (posts.data) {
   return Astro.rewrite("/404-blog")
 }
-console.log(posts.data)
+// console.log(posts.data)
 // Pagination
 const response_count = await fetch(`${SITE.WP_BLOG_LIST}`);
 const result_count = await response_count.json();
@@ -28,12 +28,17 @@ let prev = Number(page);
 let next = Number(page);
 let pages = Number(page);
 
-
+console.log('pages', pages)
+	console.log('pagedp', pagedp)
 if(pagedp == pages) {
 	prev = pagedp - 1;
 	next = pagedn;
 	url_prev = '/blog/'+prev;
 	url_next = '';
+	if(pagedp == 1 && pages == 1) {
+		url_prev = '';
+		url_next = '';
+	}
 }
 
 if(Number(pages) < Number(pagedp)) {
@@ -47,6 +52,7 @@ if(Number(pages) < Number(pagedp)) {
 		url_prev = '';
 	}
 }
+	
 // pagination end
 ---
 
