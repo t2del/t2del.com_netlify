@@ -20,7 +20,11 @@ if (post == undefined) {
 <PageLayout title={`${post.title.rendered} | Blog |` } description={post.title.rendered} wpid={post.id}>
   <Container containerWidth="mx-auto max-w-[1440px] px-5">    
     <article class="blog-single">
-      <img src={post._embedded?.['wp:featuredmedia']?.['0']?.media_details?.sizes?.full?.source_url || '/placeholder.jpg' } alt={post.title.rendered} title={post.title.rendered} style={`view-transition-name: vt-post-featured-image-${post.slug};`} loading="eager" />
+      <img src={`https://t2del-azure-wp.azurewebsites.net/${post._embedded?.['wp:featuredmedia']?.['0']?.media_details?.sizes?.full?.source_url || '/placeholder.jpg'}`} 
+      alt={post.title.rendered} 
+      title={post.title.rendered} 
+      style={`view-transition-name: vt-post-featured-image-${post.slug};`} 
+      loading="eager" />
       <hr>
       <h1 set:html={post.title.rendered} />
       <span class="post-meta"><FormattedDate2 date={post.date} /></span>

@@ -17,7 +17,7 @@ let posts = await res.json();
 if (posts.data) {
   return Astro.rewrite("/404-blog")
 }
-
+console.log(posts.data)
 // Pagination
 const response_count = await fetch(`${SITE.WP_BLOG_LIST}`);
 const result_count = await response_count.json();
@@ -61,13 +61,18 @@ if(Number(pages) < Number(pagedp)) {
 					<li class="flex flex-col items-center gap-8 p-5 md:flex-row md:gap-8 rounded-2xl">						
 							<div>
 								<a href={`/${post.slug}`}>
-								<img class="size-52 shadow-xl rounded-md" src={post._embedded?.['wp:featuredmedia']?.['0']?.media_details?.sizes?.full?.source_url || '/placeholder.jpg'} alt={`${post.title.rendered} | Blog thumb`} title={`${post.title.rendered} | Blog thumb`} loading="eager" style={`view-transition-name: vt-post-featured-image-${post.slug};`} />
+								<img 
+									class="size-52 shadow-xl rounded-md" 
+									src={`https://t2del-azure-wp.azurewebsites.net/${post._embedded?.['wp:featuredmedia']?.['0']?.media_details?.sizes?.full?.source_url  || '/placeholder.jpg'}`} 
+									alt={`${post.title.rendered} | Blog thumb`} 
+									title={`${post.title.rendered} | Blog thumb`} 
+									loading="eager" style={`view-transition-name: vt-post-featured-image-${post.slug};`} />
 									{/* <img class="size-52 shadow-xl rounded-md" src={post._embedded['wp:featuredmedia']['0'].media_details.sizes.full.source_url} alt={`${post.title.rendered} | Blog thumb` } title={`${post.title.rendered} | Blog thumb` } loading="eager" style={`view-transition-name: vt-post-featured-image-${post.slug};`} /> */}
 								</a>								
 							</div>
 							<div class="flex items-center md:items-start">
 								<a href={`/${post.slug}`}>
-									<span class="text-2xl font-medium" style={`view-transition-name: vt-post-title-${post.slug};`}>{post.title.rendered}</span>
+									<span class="text-2xl font-medium" style={`view-transition-name: vt-post-title-${post.slug};`} set:html={post.title.rendered}></span>
 									<span class="font-medium text-sky-500"  set:html={post.excerpt.rendered}></span>
 									<span class="flex gap-2 font-medium text-gray-600 dark:text-gray-400" style={`view-transition-name: vt-post-excerpt-${post.slug};`}>
 									<FormattedDate2 date={post.date} />
