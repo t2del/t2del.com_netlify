@@ -36,7 +36,7 @@ const { title, description, wpid } = Astro.props;
     <Header />
     
     <main data-pagefind-body>
-      <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
+      <div class="mx-auto max-w-[1440px] px-5"><Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} /></div>
       <slot />
     </main>
     <Footer />
