@@ -4,6 +4,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import { SITE } from "@consts";
 import Search from "astro-pagefind/components/Search";
+import Search2 from "@/components/Search.astro";
 
 type Props = {
   title: string;
@@ -22,7 +23,13 @@ const { title, description } = Astro.props;
     <Header />
     
     <main data-pagefind-body>
-      <div class="mx-auto max-w-[1440px] px-5"><Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} /></div>
+      <div class="ml-auto w-fit">
+					<div id="buttons-panel" class="top-4 md:top-8 -ml-[4.5rem] flex space-x-2">
+						<Search2 />
+						<!-- <ThemeToggle /> -->
+					</div>
+				</div>	
+      <div class="mx-auto max-w-[1440px] px-5 hidden"><Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} /></div>
       
       <slot />
     </main>
