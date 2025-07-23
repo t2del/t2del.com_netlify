@@ -1,8 +1,8 @@
 ---
 title: 'Crossroads Caring for Carers'
 desc: 'Welcome to Crossroads Caring for Carers Celebrating 25 years of Caring for Carers'
-heroImage: '/project/crossroadsbarnsley.jpg'
-heroImageScroll: '/project/crossroadsbarnsley.png'
+heroImage: './crossroadsbarnsley.jpg'
+heroImageScroll: './crossroadsbarnsley.png'
 siteUrl:  'https://crossroadsbarnsley.com/'
 role: 'Front-End and Back-end Development'
 platform: 'Wordpress / Elementor'
