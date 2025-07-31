@@ -1,27 +1,20 @@
 ---
 import type { CollectionEntry } from "astro:content";
 // import { Picture, Image  } from "astro:assets";
-import { Image  } from "astro:assets";
+import { getImage, Image   } from "astro:assets";
 type Props = {
   entry: CollectionEntry<"projects">;
 }
 
 const { entry } = Astro.props;
+
+const optimizedBackgroundImage = await getImage({
+  src: entry.data.heroImage ?? "/placeholder.png",
+  format: "webp", // Explicitly request WebP format
+});
 ---
 
 <a href={`/${entry.collection}/${entry.slug}`} class="relative group flex flex-nowrap py-3 px-4 pr-10 rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
-            <!-- <Picture 
-
-                width={700}
-                height={250}
-								alt={entry.data.title}
-								class="object-cover"
-								fetchpriority="high"
-								loading="lazy" // loading="eager"
-                src={entry.data.heroImage ?? "/placeholder.png"}
-                formats={['avif', 'webp']}
-                style={`view-transition-name: vt-post-featured-image-${entry.slug}; object-fit:contain`}
-							/> -->
               <Image 
                 layout='constrained'
                 width={500}
@@ -30,8 +23,7 @@ const { entry } = Astro.props;
 								class="object-cover "
 								fetchpriority="high"
 								loading="lazy" // loading="eager"
-                src={entry.data.heroImage ?? "/placeholder.png"}
-                
+                src={optimizedBackgroundImage.src ?? "/placeholder.png"}
                 style={`view-transition-name: vt-post-featured-image-${entry.slug}; object-fit:contain`}
 							/>
   <div class="flex flex-col flex-1  pl-7">
