@@ -13,10 +13,10 @@ const { entry } = Astro.props;
   <img src={entry.data.heroImage} alt={entry.data.title} width="250" height="60" class="custom-img relative group flex  flex-nowrap rounded border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out hidden" loading="lazy"  style={`view-transition-name: vt-post-featured-image-${entry.slug}; object-fit:contain`}>
             <Picture 
                 inferSize={true}
-                width={250}
-                height={60}
+                width={550}
+                height={100}
 								alt={entry.data.title}
-								class="object-cover"
+								class="object-cover max-w-[250px]"
 								fetchpriority="high"
 								loading="lazy" // loading="eager"
                 src={entry.data.heroImage ?? "/placeholder.png"}
