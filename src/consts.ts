@@ -6,7 +6,7 @@ export const SITE: Site = {
   EMAIL: "macapagal.dennis@gmail.com",
   NUM_POSTS_ON_HOMEPAGE: 3,
   NUM_WORKS_ON_HOMEPAGE: 3,
-  NUM_PROJECTS_ON_HOMEPAGE: 5,
+  NUM_PROJECTS_ON_HOMEPAGE: 4,
   PHONE_NUM: 88140252,
   ICON: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M16 1H8C6.34 1 5 2.34 5 4v16c0 1.66 1.34 3 3 3h8c1.66 0 3-1.34 3-3V4c0-1.66-1.34-3-3-3m-2 20h-4v-1h4zm3.25-3H6.75V4h10.5z"/></svg>',
   // WP_BLOG_LIST: "https://t2del-azure-wp.azurewebsites.net/wp-json/wp/v2/posts?_embed",
