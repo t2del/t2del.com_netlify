@@ -1,5 +1,6 @@
 ---
 import { SITE, SOCIALS } from "@consts";
+import Search2 from "@/components/Search.astro";
 
 ---
 <header id="cs-navigation">
@@ -58,13 +59,15 @@ import { SITE, SOCIALS } from "@consts";
                   </a>
                 ))
               }
+              
           </div>
         </div>
     </nav>
     <div class="cs-contact-group">
         <a href={`tel:${SITE.PHONE_NUM}`} class="cs-phone">
-          <span set:html={SITE.ICON}></span> {SITE.PHONE_NUM}
+          <span set:html={SITE.ICON}></span>
         </a>
+        <Search2 />
         <div class="cs-social">
           {
             SOCIALS.map((SOCIAL) => (
@@ -212,7 +215,7 @@ import { SITE, SOCIALS } from "@consts";
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
   }
   #cs-navigation .cs-logo {
     width: auto;
@@ -258,7 +261,7 @@ import { SITE, SOCIALS } from "@consts";
     order: 3;
   }
   #cs-navigation .cs-contact-group {
-    display: none;
+    display: flex;
     position: relative;
     z-index: 10;
   }
@@ -443,7 +446,7 @@ import { SITE, SOCIALS } from "@consts";
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
   #cs-navigation .cs-contact-group {
-    display: block;
+    display: flex;
   }
 }
 /*-- -------------------------- -->
@@ -680,7 +683,7 @@ import { SITE, SOCIALS } from "@consts";
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
   }
   #cs-navigation .cs-phone {
     font-size: 1rem;

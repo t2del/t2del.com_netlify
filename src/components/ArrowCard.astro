@@ -8,31 +8,34 @@ type Props = {
 
 const { entry } = Astro.props;
 
+// import myImage from entry.data.heroImage;
 const optimizedBackgroundImage = await getImage({
   src: entry.data.heroImage ?? "/placeholder.png",
   format: "webp", // Explicitly request WebP format
 });
 ---
 
-<a href={`/${entry.collection}/${entry.slug}`} class="relative group flex flex-col  rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
+
   <div class="m-auto max-w-[1440px] px-2 md:px-2 md:pt-4">
-    <article class="inline-grid w-full rounded-lg bg-color-75" data-pagefind-body>
-      <div class="flex items-center justify-center">
-        <Image 
-          layout='constrained'
-          width={500}
-          height={250}
-          alt={entry.data.title}
-          fetchpriority="high"
-          loading="lazy" // loading="eager"
-          src={optimizedBackgroundImage.src ?? "/placeholder.png"}
-          style={`view-transition-name: vt-post-featured-image-${entry.slug}; object-fit:contain`}
-        />
-      </div>
-      <h4 class="font-semibold" style={`view-transition-name: vt-post-featured-title-${entry.slug};`}>
-        {entry.data.title}
-      </h4>
-    </article>
+    <a href={`/${entry.collection}/${entry.slug}`} class="relative group flex flex-col  rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
+      <article class="inline-grid w-full rounded-lg bg-color-75" data-pagefind-body>
+        <div class="flex items-center justify-center">
+          <Image 
+            layout='constrained'
+            width={900}
+            height={600}
+            alt={entry.data.title}
+            fetchpriority="high"
+            loading="lazy" // loading="eager"
+            src={optimizedBackgroundImage.src ?? "/placeholder.png"}
+            style={`view-transition-name: vt-post-featured-image-${entry.slug}; object-fit:contain`}
+          />
+        </div>
+        <h4 class="font-semibold" style={`view-transition-name: vt-post-featured-title-${entry.slug};`}>
+          {entry.data.title}
+        </h4>
+      </article>
+    </a>
   </div>
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
@@ -41,8 +44,6 @@ const optimizedBackgroundImage = await getImage({
     <line x1="5" y1="12" x2="19" y2="12" class="translate-x-3 group-hover:translate-x-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out" />
     <polyline points="12 5 19 12 12 19" class="-translate-x-1 group-hover:translate-x-0 transition-transform duration-300 ease-in-out" />
   </svg>
-</a>
-
 
 <style>
   .flex-col {
