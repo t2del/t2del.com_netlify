@@ -4,6 +4,7 @@ import Search2 from "@/components/Search.astro";
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const localeLang = Astro.currentLocale ?? 'en';
+import LanguageToggleWrapper from '../components/LanguageToggleWrapper.astro';
 ---
 <header id="cs-navigation">
   <div class="cs-container">
@@ -48,6 +49,7 @@ const localeLang = Astro.currentLocale ?? 'en';
                 <li class="cs-li">
                   <a href={getRelativeLocaleUrl(localeLang, "blog")} class="cs-li-link font-semibold text-black dark:text-white" data-astro-prefetch>Blog</a>
                 </li>
+                <li class="cs-li"><LanguageToggleWrapper /></li>
             </ul>
             <div class="cs-social-mobile">
               {
