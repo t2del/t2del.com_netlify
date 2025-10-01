@@ -3,15 +3,12 @@
 import LanguageToggle from './LanguageToggle.jsx';
 
 // Define configuration constants (must match astro.config.mjs)
-const ALL_LOCALES = ['en', 'es'];
+const ALL_LOCALES = ['en', 'es']; // Make sure this matches your React component
 const DEFAULT_LOCALE = 'en';
 
-// Astro.currentLocale is set by Astro's i18n middleware
 const currentLocale = Astro.currentLocale || DEFAULT_LOCALE;
 
-// IMPORTANT: Determine if the default locale is prefixed.
-// This example assumes 'prefixDefaultLocale: false' in astro.config.mjs
-// If 'prefixDefaultLocale: true', set this to true.
+// IMPORTANT: Set this based on your astro.config.mjs i18n settings
 const PREFIX_DEFAULT = false; 
 ---
 
