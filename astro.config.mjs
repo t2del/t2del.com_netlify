@@ -10,16 +10,20 @@ import pagefind from "astro-pagefind";
 
 export default defineConfig({
   site: "https://www.t2del.com",
+  // output: "server",
   build: {
     format: "file",
   },
   integrations: [mdx(), sitemap(), tailwind(), pagefind()],
   adapter: netlify(),
   i18n: {
-    locales: ["es", "en", "fr", "ja"],
+    locales: ["es", "en"],
     defaultLocale: "en",
     routing: {
-      prefixDefaultLocale: true
+      prefixDefaultLocale: false
     },
+    // domains: {
+    //   es: "https://es.example.com",
+    // }
   }
 });
