@@ -2,8 +2,8 @@
 import { SITE, SOCIALS } from "@consts";
 import Search2 from "@/components/Search.astro";
 import { getRelativeLocaleUrl } from 'astro:i18n';
-// getRelativeLocaleUrl(Astro.currentLocale, "about")
-const localeLang = Astro.currentLocale;
+
+const localeLang = Astro.currentLocale ?? 'en';
 ---
 <header id="cs-navigation">
   <div class="cs-container">
