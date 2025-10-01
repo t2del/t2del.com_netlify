@@ -6,7 +6,7 @@ import tailwind from "@astrojs/tailwind";
 import netlify from "@astrojs/netlify";
 import pagefind from "astro-pagefind";
 
-
+// import db from "@astrojs/db";
 
 export default defineConfig({
   site: "https://www.t2del.com",
@@ -16,10 +16,10 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), tailwind(), pagefind()],
   adapter: netlify(),
   i18n: {
-    locales: ["es", "en"],
+    locales: ["es", "en", "fr", "ja"],
     defaultLocale: "en",
     routing: {
-        prefixDefaultLocale: true
-    }
+      prefixDefaultLocale: true
+    },
   }
 });

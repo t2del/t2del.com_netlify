@@ -9,7 +9,7 @@ const localeLang = Astro.currentLocale ?? 'en';
   <div class="cs-container">
     <!--Nav Logo-->
     <!--Logo is turned white in the css with a filter on dark mode-->
-    <a href={ `${Astro.currentLocale}` } class="cs-logo" aria-label="back to home">{SITE.NAME}</a>
+    <a href={getRelativeLocaleUrl(localeLang, "/")} class="cs-logo" aria-label="back to home">{SITE.NAME}</a>
     <!--Navigation List-->
     <nav class="cs-nav" role="navigation">
         <!--Mobile Nav Toggle-->

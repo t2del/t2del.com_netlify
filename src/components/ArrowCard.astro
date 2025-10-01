@@ -13,11 +13,14 @@ const optimizedBackgroundImage = await getImage({
   src: entry.data.heroImage ?? "/placeholder.png",
   format: "webp", // Explicitly request WebP format
 });
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const localeLang = Astro.currentLocale ?? 'en';
 ---
 
 
   <div class="m-auto max-w-[1440px] px-2 md:px-2 md:pt-4">
-    <a href={`/${entry.collection}/${entry.slug}`} class="relative group flex flex-col  rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
+    <a href={getRelativeLocaleUrl(localeLang, `${entry.collection}/${entry.slug}`)} class="relative group flex flex-col  rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white transition-colors duration-300 ease-in-out">
       <article class="inline-grid w-full rounded-lg bg-color-75 px-4 md:px-4 py-2 md:py-4" data-pagefind-body>
         <div class="mb-4 overflow-auto rounded-lg">
           <Image 
