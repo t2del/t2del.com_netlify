@@ -1,13 +1,15 @@
 ---
 import { SITE, SOCIALS } from "@consts";
 import Search2 from "@/components/Search.astro";
-
+import { getRelativeLocaleUrl } from 'astro:i18n';
+// getRelativeLocaleUrl(Astro.currentLocale, "about")
+const localeLang = Astro.currentLocale;
 ---
 <header id="cs-navigation">
   <div class="cs-container">
     <!--Nav Logo-->
     <!--Logo is turned white in the css with a filter on dark mode-->
-    <a href="/" class="cs-logo" aria-label="back to home">{SITE.NAME}</a>
+    <a href={ `${Astro.currentLocale}` } class="cs-logo" aria-label="back to home">{SITE.NAME}</a>
     <!--Navigation List-->
     <nav class="cs-nav" role="navigation">
         <!--Mobile Nav Toggle-->
@@ -21,7 +23,7 @@ import Search2 from "@/components/Search.astro";
         <div class="cs-ul-wrapper">
             <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
                 <li class="cs-li">
-                    <a href="/about" class="cs-li-link font-semibold text-black dark:text-white">About</a>
+                    <a href={getRelativeLocaleUrl(localeLang, "about")} class="cs-li-link font-semibold text-black dark:text-white">About</a>
                 </li>
                 <li class="cs-li cs-dropdown hide" tabindex="0">
                     <span class="cs-li-link font-semibold text-black dark:text-white">
@@ -38,13 +40,13 @@ import Search2 from "@/components/Search.astro";
                     </ul>
                 </li>
                 <li class="cs-li">
-                  <a href="/work" class="cs-li-link font-semibold text-black dark:text-white">Work</a>
+                  <a href={getRelativeLocaleUrl(localeLang, "work")} class="cs-li-link font-semibold text-black dark:text-white">Work</a>
                 </li>
                 <li class="cs-li">
-                    <a href="/projects" class="cs-li-link font-semibold text-black dark:text-white">Projects</a>
+                    <a href={getRelativeLocaleUrl(localeLang, "projects")} class="cs-li-link font-semibold text-black dark:text-white">Projects</a>
                 </li>
                 <li class="cs-li">
-                  <a href="/blog" class="cs-li-link font-semibold text-black dark:text-white">Blog</a>
+                  <a href={getRelativeLocaleUrl(localeLang, "blog")} class="cs-li-link font-semibold text-black dark:text-white">Blog</a>
                 </li>
             </ul>
             <div class="cs-social-mobile">

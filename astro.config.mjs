@@ -15,4 +15,11 @@ export default defineConfig({
   },
   integrations: [mdx(), sitemap(), tailwind(), pagefind()],
   adapter: netlify(),
+  i18n: {
+    locales: ["es", "en"],
+    defaultLocale: "en",
+    routing: {
+        prefixDefaultLocale: true
+    }
+  }
 });
