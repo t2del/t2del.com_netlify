@@ -3,11 +3,10 @@ export const prerender = true;
 //import { getCollection } from "astro:content";
 import Container from "@components/Container.astro";
 import PageLayout from "@layouts/PageLayout.astro";
-import {  HOME } from "@consts";
+import {  CONTACTS } from "@consts";
 
 ---
-
-<PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+<PageLayout title={CONTACTS.ES.TITLE ?? ""} description={CONTACTS.ES.DESCRIPTION ?? ""}>
   <Container containerWidth="mx-auto max-w-[1440px] px-5">
     <h1 class="notshow frombottom font-semibold text-black dark:text-white">
       Lets Talk!<span class="text-xl">👋🏻</span>

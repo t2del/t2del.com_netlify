@@ -19,8 +19,7 @@ import {  HOME } from "@consts";
 //   )
 //   .slice(0, SITE.NUM_WORKS_ON_HOMEPAGE);
 ---
-
-<PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+<PageLayout title={HOME.ES.TITLE ?? ""} description={HOME.ES.DESCRIPTION ?? ""}>
   <Container containerWidth="mx-auto max-w-[1440px] px-5">
     <h1 class="notshow frombottom font-semibold text-black dark:text-white" style="view-transition-name: vt-post-featured-title">
       Dennis Macapagal<span class="text-xl">👋🏻</span>
