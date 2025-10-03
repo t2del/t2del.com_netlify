@@ -29,8 +29,7 @@ const { page } = Astro.props;
 const project = page.data;
 
 ---
-
-<PageLayout title={PROJECTS.TITLE} description={PROJECTS.DESCRIPTION}>
+<PageLayout title={PROJECTS.EN.TITLE ?? ""} description={PROJECTS.EN.DESCRIPTION ?? ""}>
 	<Container containerWidth="mx-auto max-w-[1440px] px-5">
 	  <div class="space-y-10">
 		<div class="animate font-semibold text-black dark:text-white">

@@ -5,6 +5,8 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const localeLang = Astro.currentLocale ?? 'en';
 import LanguageToggleWrapper from '../components/LanguageToggleWrapper.astro';
+const currentPath = Astro.url.pathname;
+console.log(currentPath);
 ---
 <header id="cs-navigation">
   <div class="cs-container">
@@ -23,7 +25,7 @@ import LanguageToggleWrapper from '../components/LanguageToggleWrapper.astro';
         </button>
         <div class="cs-ul-wrapper">
             <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
-                <li class="cs-li">
+                <li class=`${currentPath === '/' ? 'active' : ''} ${currentPath === '/es/' ? 'active' : ''} cs-li`>
                     <a href={getRelativeLocaleUrl(localeLang, "/")} class="cs-li-link font-semibold text-black dark:text-white" data-astro-prefetch>Home</a>
                 </li>
                 <li class="cs-li cs-dropdown hide" tabindex="0">

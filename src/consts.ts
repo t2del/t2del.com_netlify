@@ -16,33 +16,69 @@ export const SITE: Site = {
 };
 
 export const HOME: Metadata = {
-  TITLE: " ",
-  DESCRIPTION: " is a minimal and lightweight blog and portfolio.",
+  EN: {
+    TITLE: " ",
+    DESCRIPTION: " is a minimal and lightweight blog and portfolio.",
+  },
+  ES: {
+    TITLE: " ",
+    DESCRIPTION: " is a minimal and lightweight blog and portfolio.",
+  }
 };
 
 export const NOTFOUND: Metadata = {
-  TITLE: "404 | Not Found",
-  DESCRIPTION: " Missing something!",
+  EN: {
+    TITLE: "404 | Not Found",
+    DESCRIPTION: " Missing something!",
+  },
+  ES: {
+    TITLE: "404 | Not Found",
+    DESCRIPTION: " Missing something!",
+  }
 };
 
 export const CONTACTS: Metadata = {
-  TITLE: "Contact Me |",
-  DESCRIPTION: " is a minimal and lightweight blog and portfolio.",
+  EN: {
+    TITLE: "Contact Me |",
+    DESCRIPTION: "This is where you can reach me.",
+  },
+  ES: {
+    TITLE: "Contact Me |",
+    DESCRIPTION: "This is where you can reach me.",
+  }
 };
 
 export const BLOG: Metadata = {
-  TITLE: "Blog |",
-  DESCRIPTION: "A collection of blog on topics I am passionate about.",
+  EN: {
+    TITLE: "Blog |",
+    DESCRIPTION: "A collection of blog on topics I am passionate about.",
+  },
+  ES: {
+    TITLE: "Blog |",
+    DESCRIPTION: "A collection of blog on topics I am passionate about.",
+  }
 };
 
 export const WORK: Metadata = {
-  TITLE: "Work |",
-  DESCRIPTION: "Where I have worked and what I have done.",
+  EN: {
+    TITLE: "Work |",
+    DESCRIPTION: "Where I have worked and what I have done.",
+  },
+  ES: {
+    TITLE: "Work |",
+    DESCRIPTION: "Where I have worked and what I have done.",
+  }
 };
 
 export const PROJECTS: Metadata = {
-  TITLE: "Projects |",
-  DESCRIPTION: "A collection of my projects, with links to repositories and demos.",
+  EN: {
+    TITLE: "Projects |",
+    DESCRIPTION: "A collection of my projects, with links to repositories and demos.",
+  },
+  ES: {
+    TITLE: "Projects |",
+    DESCRIPTION: "A collection of my projects, with links to repositories and demos.",
+  }
 };
 
 export const SOCIALS: Socials = [

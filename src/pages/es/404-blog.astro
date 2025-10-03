@@ -5,7 +5,7 @@ import {  NOTFOUND } from "@consts";
 export const prerender = false;
 ---
 
-<PageLayout title={NOTFOUND.TITLE} description={NOTFOUND.DESCRIPTION}>
+<PageLayout title={NOTFOUND.ES.TITLE ?? "Not Found"} description={NOTFOUND.ES.DESCRIPTION ?? "No description available"}>
   <Container containerWidth="mx-auto max-w-[1440px] px-5">
 
     <div class="space-y-16">

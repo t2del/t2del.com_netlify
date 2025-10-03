@@ -12,8 +12,14 @@ export type Site = {
 };
 
 export type Metadata = {
-  TITLE: string;
-  DESCRIPTION: string;
+  EN: {
+    TITLE?: string;
+    DESCRIPTION?: string;
+  };
+  ES: {
+    TITLE?: string;
+    DESCRIPTION?: string;
+  };
 };
 
 export type Socials = {
