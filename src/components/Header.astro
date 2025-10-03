@@ -24,7 +24,7 @@ import LanguageToggleWrapper from '../components/LanguageToggleWrapper.astro';
         <div class="cs-ul-wrapper">
             <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
                 <li class="cs-li">
-                    <a href={getRelativeLocaleUrl(localeLang, "about")} class="cs-li-link font-semibold text-black dark:text-white" data-astro-prefetch>About</a>
+                    <a href={getRelativeLocaleUrl(localeLang, "/")} class="cs-li-link font-semibold text-black dark:text-white" data-astro-prefetch>Home</a>
                 </li>
                 <li class="cs-li cs-dropdown hide" tabindex="0">
                     <span class="cs-li-link font-semibold text-black dark:text-white">
@@ -40,8 +40,8 @@ import LanguageToggleWrapper from '../components/LanguageToggleWrapper.astro';
                         </li>
                     </ul>
                 </li>
-                <li class="cs-li">
-                  <a href={getRelativeLocaleUrl(localeLang, "work")} class="cs-li-link font-semibold text-black dark:text-white" data-astro-prefetch>Work</a>
+                <li class="cs-li hide">
+                  <a href={getRelativeLocaleUrl(localeLang, "work")} class="cs-li-link font-semibold text-black dark:text-white " data-astro-prefetch>Work</a>
                 </li>
                 <li class="cs-li">
                     <a href={getRelativeLocaleUrl(localeLang, "projects")} class="cs-li-link font-semibold text-black dark:text-white" data-astro-prefetch>Projects</a>

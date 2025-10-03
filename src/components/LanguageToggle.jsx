@@ -85,7 +85,7 @@ export default function LanguageToggle({ currentLocale, allLocales, prefixDefaul
       {isOpen && (
         <div 
           id="language-list" 
-          className="absolute right-0 mt-2 w-39 origin-top-right rounded-lg bg-white shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute right-0 mt-2 w-38 origin-top-right rounded-lg bg-white shadow-xl ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu" 
           aria-orientation="vertical"
         >
@@ -103,7 +103,7 @@ export default function LanguageToggle({ currentLocale, allLocales, prefixDefaul
                 role="menuitem"
               >
                 <Flag locale={locale} />
-                {LOCALE_LABELS[locale]} - <span className="text-xs text-gray-500">{LOCALE_TO_FLAG[locale].toUpperCase()}</span>
+                {LOCALE_LABELS[locale]}
               </a>
             ))}
           </div>
