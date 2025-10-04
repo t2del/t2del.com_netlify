@@ -72,9 +72,10 @@ switch (localeLang) {
                 <li class=`${currentPath === '/blog' ? 'active font-semibold' : ''} ${currentPath === '/es/blog' ? 'active font-semibold' : ''} cs-li`>
                   <a href={getRelativeLocaleUrl(localeLang, "blog")} class="cs-li-link text-black dark:text-white" data-astro-prefetch>{navTitleBlog}</a>
                 </li>
-                <li class="cs-li"><LanguageToggleWrapper /></li>
+                <li class="block lg:hidden"><LanguageToggleWrapper /></li>
             </ul>
-            <div class="cs-social-mobile">
+            <div class="cs-social-mobile ">
+
               {
                 SOCIALS.map((SOCIAL) => (
                   <a
@@ -85,8 +86,7 @@ switch (localeLang) {
                   >
                   </a>
                 ))
-              }
-              
+              }              
           </div>
         </div>
     </nav>
@@ -95,7 +95,9 @@ switch (localeLang) {
           <span set:html={SITE.ICON}></span>
         </a>
         <Search2 />
-        <div class="cs-social">
+        <div class="hidden lg:block"><LanguageToggleWrapper /></div>
+        
+        <div class="cs-social hide">
           {
             SOCIALS.map((SOCIAL) => (
                 <a
