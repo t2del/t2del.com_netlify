@@ -1,4 +1,4 @@
-import type { Site, Metadata, Socials } from "@types";
+import type { Site, Metadata, Socials, Navigation } from "@types";
 
 export const SITE: Site = {
   SITE_URL: "https://www.t2del.com",
@@ -13,6 +13,36 @@ export const SITE: Site = {
   // WP_BLOG_POST: "https://t2del-azure-wp.azurewebsites.net/wp-json/wp/v2/posts",
   WP_BLOG_LIST: "https://denn-block.instawp.xyz/wp-json/wp/v2/posts?_embed",
   WP_BLOG_POST: "https://denn-block.instawp.xyz/wp-json/wp/v2/posts",
+};
+export const primaryNav: Navigation = {
+  EN: [
+    {
+      TITLE: 'Home',
+      URL: '/',
+    },
+    {
+      TITLE: 'Projects',
+      URL: '/projects',
+    },
+    {
+      TITLE: 'Blog',
+      URL: '/blog',
+    },
+  ],
+  ES: [
+    {
+      TITLE: 'Inicio',
+      URL: '/',
+    },
+    {
+      TITLE: 'Proyectos',
+      URL: '/proyectos',
+    },
+    {
+      TITLE: 'Blog',
+      URL: '/blog',
+    },
+  ],
 };
 
 export const HOME: Metadata = {

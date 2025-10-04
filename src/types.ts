@@ -22,6 +22,17 @@ export type Metadata = {
   };
 };
 
+export type Navigation = {
+  EN: {
+    TITLE?: string;
+    URL?: string;
+  }[];
+  ES: {
+    TITLE?: string;
+    URL?: string;
+  }[];
+};
+
 export type Socials = {
   NAME: string;
   HREF: string;

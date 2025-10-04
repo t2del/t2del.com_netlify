@@ -1,12 +1,33 @@
 ---
-import { SITE, SOCIALS } from "@consts";
+import { SITE, SOCIALS, primaryNav } from "@consts";
 import Search2 from "@/components/Search.astro";
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const localeLang = Astro.currentLocale ?? 'en';
 import LanguageToggleWrapper from '../components/LanguageToggleWrapper.astro';
 const currentPath = Astro.url.pathname;
-console.log(currentPath);
+console.log(primaryNav.EN[0]?.TITLE);
+// Switch for different languages
+let navTitleHome, navTitleProjects, navTitleBlog;
+switch (localeLang) {
+  case 'en':
+    navTitleHome = primaryNav.EN[0]?.TITLE;
+    navTitleProjects = primaryNav.EN[1]?.TITLE;
+    navTitleBlog = primaryNav.EN[2]?.TITLE;
+    break;
+  case 'es':
+    navTitleHome = primaryNav.ES[0]?.TITLE;
+    navTitleProjects = primaryNav.ES[1]?.TITLE;
+    navTitleBlog = primaryNav.ES[2]?.TITLE;
+    break;
+
+  // Add more cases as needed
+  default:
+    navTitleHome = primaryNav.EN[0]?.TITLE;
+    navTitleProjects = primaryNav.EN[1]?.TITLE;
+    navTitleBlog = primaryNav.EN[2]?.TITLE;
+}
+
 ---
 <header id="cs-navigation">
   <div class="cs-container">
@@ -25,8 +46,8 @@ console.log(currentPath);
         </button>
         <div class="cs-ul-wrapper">
             <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
-                <li class=`${currentPath === '/' ? 'active' : ''} ${currentPath === '/es/' ? 'active' : ''} cs-li`>
-                    <a href={getRelativeLocaleUrl(localeLang, "/")} class="cs-li-link font-semibold text-black dark:text-white" data-astro-prefetch>Home</a>
+                <li class=`${currentPath === '/' ? 'active font-semibold' : ''} ${currentPath === '/es/' ? 'active font-semibold' : ''} cs-li`>
+                    <a href={getRelativeLocaleUrl(localeLang, "/")} class="cs-li-link dark:text-white" data-astro-prefetch>{navTitleHome}</a>
                 </li>
                 <li class="cs-li cs-dropdown hide" tabindex="0">
                     <span class="cs-li-link font-semibold text-black dark:text-white">
@@ -43,13 +64,13 @@ console.log(currentPath);
                     </ul>
                 </li>
                 <li class="cs-li hide">
-                  <a href={getRelativeLocaleUrl(localeLang, "work")} class="cs-li-link font-semibold text-black dark:text-white " data-astro-prefetch>Work</a>
+                  <a href={getRelativeLocaleUrl(localeLang, "work")} class="cs-li-link text-black dark:text-white " data-astro-prefetch>Work</a>
                 </li>
-                <li class="cs-li">
-                    <a href={getRelativeLocaleUrl(localeLang, "projects")} class="cs-li-link font-semibold text-black dark:text-white" data-astro-prefetch>Projects</a>
+                <li class=`${currentPath === '/projects' ? 'active font-semibold' : ''} ${currentPath === '/es/projects' ? 'active font-semibold' : ''} cs-li`>
+                    <a href={getRelativeLocaleUrl(localeLang, "projects")} class="cs-li-link text-black dark:text-white" data-astro-prefetch>{navTitleProjects}</a>
                 </li>
-                <li class="cs-li">
-                  <a href={getRelativeLocaleUrl(localeLang, "blog")} class="cs-li-link font-semibold text-black dark:text-white" data-astro-prefetch>Blog</a>
+                <li class=`${currentPath === '/blog' ? 'active font-semibold' : ''} ${currentPath === '/es/blog' ? 'active font-semibold' : ''} cs-li`>
+                  <a href={getRelativeLocaleUrl(localeLang, "blog")} class="cs-li-link text-black dark:text-white" data-astro-prefetch>{navTitleBlog}</a>
                 </li>
                 <li class="cs-li"><LanguageToggleWrapper /></li>
             </ul>
