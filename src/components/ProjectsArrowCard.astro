@@ -2,10 +2,22 @@
 import type { CollectionEntry } from "astro:content";
 // import { Picture, Image  } from "astro:assets";
 import { getImage, Image   } from "astro:assets";
+const localeLang = Astro.currentLocale ?? 'en';
+// Define a type that maps locale strings to collection names
+type LocaleCollectionMap = {
+  'en': 'projects';
+  'es': 'projectsES';
+  // Add more locales as needed
+  // 'fr': 'projectsFR'; 
+};
+// 1. Derive collection name types from the map keys (cannot index with a runtime string)
+type LocaleKey = keyof LocaleCollectionMap;
+type CurrentCollectionName = LocaleCollectionMap[LocaleKey] & string;
+// 2. Define the Props using the dynamically determined collection name
 type Props = {
-  entry: CollectionEntry<"projects">;
-}
-
+  // Use the calculated type to get the correct CollectionEntry type
+  entry: CollectionEntry<CurrentCollectionName>;
+};
 const { entry } = Astro.props;
 
 // import myImage from entry.data.heroImage;
@@ -15,12 +27,11 @@ const optimizedBackgroundImage = await getImage({
 });
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
-const localeLang = Astro.currentLocale ?? 'en';
 ---
 
 
   <div class="m-auto max-w-[1440px] ">
-    <a href={getRelativeLocaleUrl(localeLang, `${entry.collection}/${entry.slug}`)} class="relative group flex flex-col  transition-colors duration-300 ease-in-out rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white" data-astro-prefetch>
+    <a href={getRelativeLocaleUrl(localeLang, `projects/${entry.slug}`)} class="relative group flex flex-col  transition-colors duration-300 ease-in-out rounded-lg border border-black/15 dark:border-white/20 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white" data-astro-prefetch>
       <article class="inline-grid w-full rounded-lg bg-color-75 px-2 md:px-2 py-2 md:py-2" data-pagefind-body>
         <div class="mb-2 overflow-auto rounded-lg">
           <Image 

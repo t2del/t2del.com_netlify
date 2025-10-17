@@ -2,7 +2,7 @@
 
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
-import ArrowCard from "@components/ArrowCard.astro";
+import ProjectsArrowCard from "@components/ProjectsArrowCard.astro";
 import Pagination from "@components/Pagination.astro";
 import {  PROJECTS, SITE } from "@consts";
 import type { GetStaticPathsOptions, Page } from 'astro';
@@ -39,7 +39,7 @@ const project = page.data;
 		  {
 			posts_project_featured.map((project) => (
 			  <div>
-				<ArrowCard entry={project}/>
+				<ProjectsArrowCard entry={project}/>
 			  </div>
 			))
 		  }
@@ -50,7 +50,7 @@ const project = page.data;
 				project.map(
 					(post) => (					
 					<div class="notshow fromtop">
-						<ArrowCard entry={post}/>						
+						<ProjectsArrowCard entry={post}/>						
 					</div>
 					)
 				)

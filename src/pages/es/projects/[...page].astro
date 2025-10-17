@@ -2,14 +2,14 @@
 
 import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
-import ArrowCard from "@components/ArrowCard.astro";
+import ProjectsArrowCard from "@components/ProjectsArrowCard.astro";
 import Pagination from "@components/Pagination.astro";
 import {  PROJECTS, SITE } from "@consts";
 import type { GetStaticPathsOptions, Page } from 'astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-	const project = (await getCollection('projects'))
+	const project = (await getCollection('projectsES'))
 	.filter(post => post.data.status == 'active')
   	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()).reverse();
   	
@@ -17,13 +17,13 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   	return paginate(project, { pageSize: SITE.NUM_PROJECTS_ON_PROECTS });
 }
 
-const posts_project_featured = (await getCollection('projects'))
+const posts_project_featured = (await getCollection('projectsES'))
 .filter(post => post.data.status == 'featured') // Filter out active posts
 .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
 
 // If set up correctly, The page prop now has everything that
 // you need to render a single page (see next section).
-type Props = { page: Page<CollectionEntry<'projects'>> };
+type Props = { page: Page<CollectionEntry<'projectsES'>> };
 
 const { page } = Astro.props;
 const project = page.data;
@@ -39,7 +39,7 @@ const project = page.data;
 		  {
 			posts_project_featured.map((project) => (
 			  <div>
-				<ArrowCard entry={project}/>
+				<ProjectsArrowCard entry={project}/>
 			  </div>
 			))
 		  }
@@ -50,7 +50,7 @@ const project = page.data;
 				project.map(
 					(post) => (					
 					<div class="notshow fromtop">
-						<ArrowCard entry={post}/>						
+						<ProjectsArrowCard entry={post}/>						
 					</div>
 					)
 				)

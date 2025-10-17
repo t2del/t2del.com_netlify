@@ -6,7 +6,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 const localeLang = Astro.currentLocale ?? 'en';
 import LanguageToggleWrapper from '../components/LanguageToggleWrapper.astro';
 const currentPath = Astro.url.pathname;
-console.log(primaryNav.EN[0]?.TITLE);
+
 // Switch for different languages
 let navTitleHome, navTitleProjects, navTitleBlog;
 switch (localeLang) {
