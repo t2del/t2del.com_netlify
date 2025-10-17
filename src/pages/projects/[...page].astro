@@ -14,7 +14,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   	.sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()).reverse();
   	
 	// Return a paginated collection of paths for all posts
-  	return paginate(project, { pageSize: SITE.NUM_PROJECTS_ON_HOMEPAGE });
+  	return paginate(project, { pageSize: SITE.NUM_PROJECTS_ON_PROECTS });
 }
 
 const posts_project_featured = (await getCollection('projects'))
@@ -45,7 +45,7 @@ const project = page.data;
 		  }
 		</div>
 
-		<div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+		<div class="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-4">
 			{
 				project.map(
 					(post) => (					
