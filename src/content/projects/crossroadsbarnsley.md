@@ -12,6 +12,14 @@ slug: 'crossroadsbarnsley'
 date: "Jan 01 2025"
 ---
 
-Welcome to Crossroads Caring for Carers Celebrating 25 years of Caring for Carers
+Work Completed for Crossroads Caring for Carers
 
-Crossroads Caring for Carers is a professional well respected charity, established in 1993 to provide direct support services to carers and the people they care for across the Barnsley Borough.
+* Hosting Migration: Successfully migrated the entire website platform from the previous management's provider to a new, optimized hosting environment, ensuring minimal downtime.
+
+* UI/UX Rework: Executed a comprehensive rework of the User Interface (UI) and User Experience (UX) to modernize the site's design and improve user navigability.
+
+* Security Implementation: Implemented updated security protocols and configurations to enhance overall website protection against vulnerabilities and threats.
+
+* Data Management: Established and maintained a schedule for timely, routine backups to ensure complete data integrity and disaster recovery preparedness.
+
+* Platform Maintenance: Conducted typical WordPress website maintenance, including performance optimization, core/plugin/theme updates, and overall health monitoring.

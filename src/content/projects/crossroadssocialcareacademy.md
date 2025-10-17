@@ -12,12 +12,14 @@ slug: 'crossroadssocialcareacademy'
 date: "Jan 01 2025"
 ---
 
-Welcome to Crossroads Social Care Academy, a registered charity in Barnsley, South Yorkshire. Recognising that an individual in need of support might require assistance from multiple agencies across health and social care, the academy aims to provide educational training, certification, general social care professionals, carers, volunteers, and unpaid carers.
+Work Completed for The Crossroads Social Care Academy
 
-Crossroads Social Care Academy is equipped with a team of highly qualified professionals, staff, and volunteers with years of experience and competencies from various backgrounds who have worked in education and social care settings. The academy team are centred on creating a friendly, relaxed and engaging classroom environment to all participants.
+* Hosting Migration: Successfully migrated the entire website platform from the previous management's provider to a new, optimized hosting environment, ensuring minimal downtime.
 
-The academy is part of Crossroads Caring for Carers, Barnsley Ltd, a professional well-respected charity, established in 1993 who provide direct support services to carers and the people they care for across the Barnsley Borough.
+* UI/UX Rework: Executed a comprehensive rework of the User Interface (UI) and User Experience (UX) to modernize the site's design and improve user navigability.
 
-Crossroads Caring for Carers, Barnsley Ltd is registered and regulated by the Care Quality Commission UK.
+* Security Implementation: Implemented updated security protocols and configurations to enhance overall website protection against vulnerabilities and threats.
 
-Please visit: <a href="https://crossroadsbarnsley.com/">https://crossroadsbarnsley.com/</a> for information about our care team and care services.
+* Data Management: Established and maintained a schedule for timely, routine backups to ensure complete data integrity and disaster recovery preparedness.
+
+* Platform Maintenance: Conducted typical WordPress website maintenance, including performance optimization, core/plugin/theme updates, and overall health monitoring.
