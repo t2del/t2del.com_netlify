@@ -1,4 +1,4 @@
-import type { Site, Metadata, Socials, Navigation } from "@types";
+import type { Site, Metadata, Socials, Navigation, FieldTranslate } from "@types";
 
 export const SITE: Site = {
   SITE_URL: "https://www.t2del.com",
@@ -15,35 +15,62 @@ export const SITE: Site = {
   WP_BLOG_LIST: "https://denn-block.instawp.xyz/wp-json/wp/v2/posts?_embed",
   WP_BLOG_POST: "https://denn-block.instawp.xyz/wp-json/wp/v2/posts",
 };
+
+// before adding item on the list, make sure to update the Navigation Types in src/types.ts
 export const primaryNav: Navigation = {
-  EN: [
-    {
-      TITLE: 'Home',
-      URL: '/',
+  EN: {
+    HOME: {
+      TITLE: "Home",
+      URL: "/",
     },
-    {
-      TITLE: 'Projects',
-      URL: '/projects',
+    PROJECTS: {
+      TITLE: "Projects",
+      URL: "/projects",
     },
-    {
-      TITLE: 'Blog',
-      URL: '/blog',
+    BLOG: {
+      TITLE: "Blog",
+      URL: "/blog",
     },
-  ],
-  ES: [
-    {
-      TITLE: 'Inicio',
-      URL: '/',
+  },
+  ES: {
+    HOME: {
+      TITLE: "Inicio",
+      URL: "/",
     },
-    {
-      TITLE: 'Proyectos',
-      URL: '/proyectos',
+    PROJECTS: {
+      TITLE: "Proyectos",
+      URL: "/proyectos",
     },
-    {
-      TITLE: 'Blog',
-      URL: '/blog',
+    BLOG: {
+      TITLE: "Blog",
+      URL: "/blog",
     },
-  ],
+  },
+};
+
+export const Translation: FieldTranslate = {
+  EN: {
+    WorkExperience: {
+      TITLE: "Work Experience",
+    },
+    RecentProjects: {
+      TITLE: "Recent Projects",
+    },
+    LetConnect: {
+      TITLE: "Let’s Connect",
+    },
+  },
+  ES: {
+    WorkExperience: {
+      TITLE: "Experiencia laboral",
+    },
+    RecentProjects: {
+      TITLE: "Proyectos Recientes",
+    },
+    LetConnect: {
+      TITLE: "Conectemosnos",
+    },
+  },
 };
 
 export const HOME: Metadata = {

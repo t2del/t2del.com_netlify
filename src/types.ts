@@ -11,28 +11,43 @@ export type Site = {
   WP_BLOG_LIST: string;
   WP_BLOG_POST: string;
 };
+export type Language = 'EN' | 'ES'; // add more languages as needed
 
-export type Metadata = {
-  EN: {
-    TITLE?: string;
-    DESCRIPTION?: string;
-  };
-  ES: {
-    TITLE?: string;
-    DESCRIPTION?: string;
-  };
+// Metadata Types
+export type MetadataFields = {
+  TITLE?: string;
+  DESCRIPTION?: string;
 };
+export type Metadata = Record<Language, MetadataFields>;
+// Metadata Types
 
-export type Navigation = {
-  EN: {
-    TITLE?: string;
-    URL?: string;
-  }[];
-  ES: {
-    TITLE?: string;
-    URL?: string;
-  }[];
+// Navigation Types
+export type NavItemProps = {
+  TITLE: string;
+  URL: string;
+  // Add more properties if needed
 };
+export type NavItems = {
+  HOME: NavItemProps;
+  PROJECTS: NavItemProps;
+  BLOG: NavItemProps;
+  // Add more NavItems if needed
+};
+export type Navigation = Record<Language, NavItems>;
+// Navigation Types
+
+
+export type TranslateItemsProps = {
+  TITLE: string;
+  // Add more properties if needed
+};
+export type TranslateItems = {
+  WorkExperience: TranslateItemsProps;
+  RecentProjects: TranslateItemsProps;
+  LetConnect: TranslateItemsProps;
+  // Add more TranslateItems if needed
+};
+export type FieldTranslate = Record<Language, TranslateItems>;
 
 export type Socials = {
   NAME: string;

@@ -11,21 +11,21 @@ const currentPath = Astro.url.pathname;
 let navTitleHome, navTitleProjects, navTitleBlog;
 switch (localeLang) {
   case 'en':
-    navTitleHome = primaryNav.EN[0]?.TITLE;
-    navTitleProjects = primaryNav.EN[1]?.TITLE;
-    navTitleBlog = primaryNav.EN[2]?.TITLE;
+    navTitleHome = primaryNav.EN.HOME.TITLE;
+    navTitleProjects = primaryNav.EN.PROJECTS.TITLE;
+    navTitleBlog = primaryNav.EN.BLOG.TITLE;
     break;
   case 'es':
-    navTitleHome = primaryNav.ES[0]?.TITLE;
-    navTitleProjects = primaryNav.ES[1]?.TITLE;
-    navTitleBlog = primaryNav.ES[2]?.TITLE;
+    navTitleHome = primaryNav.ES.HOME.TITLE;
+    navTitleProjects = primaryNav.ES.PROJECTS.TITLE;
+    navTitleBlog = primaryNav.ES.BLOG.TITLE;
     break;
 
   // Add more cases as needed
   default:
-    navTitleHome = primaryNav.EN[0]?.TITLE;
-    navTitleProjects = primaryNav.EN[1]?.TITLE;
-    navTitleBlog = primaryNav.EN[2]?.TITLE;
+    navTitleHome = primaryNav.EN.HOME.TITLE;
+    navTitleProjects = primaryNav.EN.PROJECTS.TITLE;
+    navTitleBlog = primaryNav.EN.BLOG.TITLE;
 }
 
 ---
