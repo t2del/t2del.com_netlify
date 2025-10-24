@@ -147,14 +147,14 @@ switch (localeLang) {
     // and we used these body.scroll styles to create some on scroll 
     // animations with the navbar
     
-    document.addEventListener('scroll', (e) => { 
-        const scroll = document.documentElement.scrollTop;
-        if(scroll >= 100){
-    document.querySelector('body').classList.add('scroll')
-        } else {
-        document.querySelector('body').classList.remove('scroll')
-        }
-    });
+    // document.addEventListener('scroll', (e) => { 
+    //     const scroll = document.documentElement.scrollTop;
+    //     if(scroll >= 100){
+    //       document.querySelector('body').classList.add('scroll')
+    //     } else {
+    //       document.querySelector('body').classList.remove('scroll')
+    //     }
+    // });
 
 
     // mobile nav toggle code
@@ -370,7 +370,7 @@ switch (localeLang) {
   #cs-navigation .cs-ul-wrapper {
     width: 100%;
     height: auto;
-    padding-bottom: 2.4em;
+    padding-bottom: 2em;
     background-color: #fff;
     border-radius: 0 0 1.5rem 1.5rem;
     position: absolute;
@@ -385,9 +385,9 @@ switch (localeLang) {
   #cs-navigation .cs-ul {
     width: 100%;
     height: auto;
-    max-height: 65vh;
+    max-height: 70vh;
     margin: 0;
-    padding: 4rem 0 0 0;
+    padding: 3rem 0 3rem 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

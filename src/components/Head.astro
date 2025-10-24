@@ -74,7 +74,7 @@ const { title, description, image = "/favicon.ico" } = Astro.props;
 <script is:inline>
   function init() {
     preloadTheme();
-    onScroll();
+    // onScroll();
     animate();
 
     const backToTop = document.getElementById("back-to-top");
@@ -109,7 +109,7 @@ const { title, description, image = "/favicon.ico" } = Astro.props;
       }
     );
 
-    document.addEventListener("scroll", onScroll);
+    //document.addEventListener("scroll", onScroll);
   }
 
   function animate() {
@@ -134,13 +134,13 @@ const { title, description, image = "/favicon.ico" } = Astro.props;
     hiddenElements.forEach((el) => obeserver.observe(el));
   }
 
-  function onScroll() {
-    if (window.scrollY > 0) {
-      document.documentElement.classList.add("scrolled");
-    } else {
-      document.documentElement.classList.remove("scrolled");
-    }
-  }
+  // function onScroll() {
+  //   if (window.scrollY > 0) {
+  //     document.documentElement.classList.add("scrolled");
+  //   } else {
+  //     document.documentElement.classList.remove("scrolled");
+  //   }
+  // }
 
   function scrollToTop(event) {
     event.preventDefault();
