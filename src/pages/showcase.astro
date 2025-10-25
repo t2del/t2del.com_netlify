@@ -4,6 +4,8 @@ import { getCollection } from "astro:content";
 import Container from "@components/Container.astro";
 import PageLayout from "@layouts/PageLayout.astro";
 import { HOME } from "@consts";
+
+import { Image } from "astro:assets";
 ---
 
 <PageLayout title={HOME.EN.TITLE ?? ""} description={HOME.EN.DESCRIPTION ?? ""}>
@@ -96,7 +98,23 @@ import { HOME } from "@consts";
             </p>
           </article>
         </section>
-
+        <section>
+          <h2 class="notshow frombottom font-semibold text-black dark:text-white text-center" style="view-transition-name: vt-post-featured-title">
+            Image<span class="text-xl">👋🏻</span>
+          </h2>
+          <article class="space-y-4">
+            <p class="animate">
+              <img src="https://personal-project.t2del.com/_astro/agogo.lJkRrQo__ZYwtEc.webp" alt="Agogo Project Image" width="800" height="600" loading="lazy" style="object-fit:contain; view-transition-name: vt-post-featured-image-agogo;">
+              <Image 
+                src='https://personal-project.t2del.com/_astro/agogo.lJkRrQo__ZYwtEc.webp'
+                alt="Agogo Project Image"
+                width={800}
+                height={600}
+                loading="lazy"
+                style="object-fit:contain; view-transition-name: vt-post-featured-image-agogo;">
+            </p>
+          </article>
+        </section>
     </div>
   </Container>
 </PageLayout>
