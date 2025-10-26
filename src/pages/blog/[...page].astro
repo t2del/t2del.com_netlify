@@ -63,10 +63,10 @@ if(Number(pages) < Number(pagedp)) {
 			{
 				posts.map((post: { slug: any; title: { rendered: unknown; }; _embedded: { [x: string]: { [x: string]: { media_details: { sizes: { full: { source_url: string | null | undefined; }; }; }; }; }; }; excerpt: { rendered: unknown; }; date: any; }) => (
 					<li class="flex flex-col items-center gap-8 p-5 md:flex-row md:gap-8 rounded-2xl" data-pagefind-body>						
-							<div>
+							<div class="">
 								<a href={`/${post.slug}`}>
 								<img 
-									class="size-52 shadow-xl rounded-md" 
+									class="size-52 shadow-xl rounded-md min-w-[300px] max-w-[350px] h-auto object-cover" 
 									src={`${post._embedded?.['wp:featuredmedia']?.['0']?.media_details?.sizes?.full?.source_url  || '/placeholder.jpg'}`} 
 									alt={`${post.title.rendered} | Blog thumb`} 
 									title={`${post.title.rendered} | Blog thumb`} 

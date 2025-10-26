@@ -4,7 +4,7 @@ export const SITE: Site = {
   SITE_URL: "https://www.t2del.com",
   NAME: "Dennis Macapagal",
   EMAIL: "macapagal.dennis@gmail.com",
-  NUM_POSTS_ON_HOMEPAGE: 3,
+  NUM_POSTS_ON_HOMEPAGE: 5,
   NUM_WORKS_ON_HOMEPAGE: 3,
   NUM_PROJECTS_ON_HOMEPAGE: 4,
   NUM_PROJECTS_ON_PROECTS: 8,
