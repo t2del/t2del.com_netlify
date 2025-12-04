@@ -61,7 +61,9 @@ const { Content } = await project.render();
       
     </div>  
 
-    <div class="content space-y-1 my-10" style={`view-transition-name: vt-post-featured-excerpt-${project.slug};`}><Content /></div>
+    <div class="content space-y-1 my-10" style={`view-transition-name: vt-post-featured-excerpt-${project.slug};`}>
+        <Content />
+    </div>
 
     <div class="animate">
       <BackToPrev href="/projects">Back to projects</BackToPrev>
@@ -73,5 +75,8 @@ const { Content } = await project.render();
   .featured-image {
     height: 450px;
     overflow: auto;
+  }
+  .content ul {
+    list-style: disc !important;
   }
 </style>
