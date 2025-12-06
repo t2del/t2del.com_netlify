@@ -67,7 +67,8 @@ switch (localeLang) {
                   <a href={getRelativeLocaleUrl(localeLang, "work")} class="cs-li-link text-black dark:text-white " data-astro-prefetch>Work</a>
                 </li>
                 <li class=`${currentPath === '/projects' ? 'active font-semibold' : ''} ${currentPath === '/es/projects' ? 'active font-semibold' : ''} cs-li`>
-                    <a href={getRelativeLocaleUrl(localeLang, "projects")} class="cs-li-link text-black dark:text-white" data-astro-prefetch>{navTitleProjects}</a>
+                    <a href={getRelativeLocaleUrl(localeLang, "projects")} class="cs-li-link text-black dark:text-white hide" data-astro-prefetch>{navTitleProjects}</a>
+                    <a href='https://projects.t2del.com/' class="cs-li-link text-black dark:text-white " data-astro-prefetch>{navTitleProjects}</a>
                 </li>
                 <li class=`${currentPath === '/blog' ? 'active font-semibold' : ''} ${currentPath === '/es/blog' ? 'active font-semibold' : ''} cs-li`>
                   <a href={getRelativeLocaleUrl(localeLang, "blog")} class="cs-li-link text-black dark:text-white" data-astro-prefetch>{navTitleBlog}</a>
