@@ -1,0 +1,38 @@
+[
+  {
+    "general": {
+      "fullName": ["", "Dennis Macapagal", ""],
+      "webSite": ["www", "https://www.t2del.com", "webSite"],
+      "email": ["e-mail", "john-doe@gmail.com", "john-doe@gmail.com"],
+      "phone": ["phone", "+44 20 7123 4567", "+44 20 7123 4567"]
+    },
+    "social": {
+      "github": ["", "https://github.com/john-doe", "github"],
+      "linkedin": [
+        "",
+        "https://www.linkedin.com/in/john-doe-2b4a791b1/",
+        "linkedin"
+      ],
+      "facebook": ["", "https://www.facebook.com/t2del", "facebook"],
+      "twitter": ["", "https://twitter.com/t2del", "twitter"],
+      "instagram": ["", "https://www.instagram.com/t2del/", "instagram"],
+      "youtube": ["", "https://www.youtube.com/t2del", "youtube"],
+      "vimeo": ["", "https://vimeo.com/t2del", "vimeo"],
+      "behance": ["", "https://www.behance.net/t2del", "behance"],
+      "telegram": ["", "https://t.me/t2del", "@t.me/john"]
+    },
+    "location": {
+      "street": "Fleet Street, 123",
+      "city": "London, NW1 6XE",
+      "country": "United Kingdom",
+      "workingHours": [
+        "Working hours",
+        [
+          "Mon-Fri, 9:00-18:00 (UTC+2)",
+          "Sat, 10:00-14:00 (UTC+2)",
+          "Sun, Closed"
+        ]
+      ]
+    }
+  }
+]

@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import { config, locale } from "../../consts";
+
+import { Image } from "astro:assets";
+import Card from '../../components/common/Card.astro';
+
+/**
+ * Component to get the latest posts from the "blog" collection.
+ * Props:
+ * - count: number (how many posts to show, default is 3)
+ */
+const { count = 3 } = Astro.props;
+
+const posts = (await getCollection("project", ({ data }) => data.draft !== true))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, count);
+
+const title = "Latest Projects";
+const description = "The latest projects I've worked on.";
+
+// Tailwind v4: only static class names are safe!
+const gridCols =
+  count >= 4
+    ? "md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-4"
+    : count === 3
+      ? "md:grid-cols-2 lg:grid-cols-2"
+      : count === 2
+        ? "md:grid-cols-2"
+        : "";
+---
+
+<section class="mb-8 text-center">
+  {title && <h2 class="animate-fade-up mb-2 text-3xl font-bold">{title}</h2>}
+  {description && <p class="animate-fade-up mb-8">{description}</p>}
+  <div class={`grid gap-6 grid-cols-1 ${gridCols}`}>
+    {
+      posts.map((post, idx) => (
+        <Card
+          data={post.data}
+          url={`${config.base}/project/${post.id}/`}
+        />
+      ))
+    }
+  </div>
+
+  <a href={`${config.base}/project/`} class="btn btn-lg animate-fade-up mt-8"
+    >All Projects</a
+  >
+</section>

@@ -1,29 +1,41 @@
-import { defineConfig } from "astro/config";
+// @ts-check
+import { defineConfig } from 'astro/config';
+
+import tailwindcss from "@tailwindcss/vite";
 import mdx from "@astrojs/mdx";
+
+import remarkBaseUrl from './plugins/remark-baseurl.js';
+import remarkToc from 'remark-toc';
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import partytown from "@astrojs/partytown";
 
+import { config } from './src/consts';
 import netlify from "@astrojs/netlify";
-import pagefind from "astro-pagefind";
-import react from '@astrojs/react'; // 👈 This line is crucial
-// import db from "@astrojs/db";
 
+// https://astro.build/config
 export default defineConfig({
-  site: "https://www.t2del.com",
+  site: config.url,
+  base: config.base,
+  trailingSlash: "always",
+  compressHTML: false,
   // output: "server",
-  build: {
-    format: "file",
-  },
-  integrations: [mdx(), sitemap(), tailwind(), pagefind(), react()],
   adapter: netlify(),
-  i18n: {
-    locales: ["es", "en"],
-    defaultLocale: "en",
-    routing: {
-      prefixDefaultLocale: false
-    },
-    // domains: {
-    //   es: "https://es.example.com",
-    // }
-  }
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  integrations: [
+    mdx(),
+    sitemap(),
+    partytown({
+      config: {
+        forward: ['dataLayer.push', 'gtag'],
+      }
+    })
+  ],
+  markdown: {
+    remarkPlugins: [
+      [remarkBaseUrl, { baseUrl: config.base }],
+      [remarkToc, { heading: 'Table of Contents', maxDepth: 3 }],
+    ],
+  },
 });

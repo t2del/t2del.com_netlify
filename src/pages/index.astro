@@ -1,44 +1,39 @@
 ---
 export const prerender = true;
 import { getCollection } from "astro:content";
-import Container from "@components/Container.astro";
-import PageLayout from "@layouts/PageLayout.astro";
-import ProjectsArrowCard from "@components/ProjectsArrowCard.astro";
-import Link from "@components/Link.astro";
-import { dateRange } from "@lib/utils";
-import { SITE, HOME, Translation } from "@consts";
+import Layout from "@/layouts/Layout.astro";
+import { locale } from "@/consts";
 
-const projects = (await getCollection("projects"))
-  .filter((project) => !project.data.draft)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
+const title = "T2del";
+const titleLayout = `T2del`;
+const description = "Minimal and lightweight blog and portfolio.";
 
-const allwork = (await getCollection("work"))
-  .sort(
-    (a, b) =>
-      new Date(b.data.dateStart).valueOf() -
-      new Date(a.data.dateStart).valueOf(),
-  )
-  .slice(0, SITE.NUM_WORKS_ON_HOMEPAGE);
+// Generate all pagination pages
+// export async function getStaticPaths() {
+//   const posts = await getCollection("work", ({ data }) => data.draft !== true);
+//   const postsPerPage = 5;
+//   const totalPages = Math.ceil(posts.length / postsPerPage);
 
-const work = await Promise.all(
-  allwork.map(async (item) => {
-    const { Content } = await item.render();
-    return { ...item, Content };
-  }),
-);
-const localeLang = Astro.currentLocale ?? 'en';
+//   // Pages from 2 to totalPages (because /project/ is index.astro)
+//   return Array.from({ length: totalPages - 1 }).map((_, i) => ({
+//     params: { page: String(i + 2) },
+//   }));
+// }
+
+
+const work = (
+  await getCollection("work", ({ data }) => data.draft !== true)
+).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+const postsPerPage = 5;
 
 ---
 
-<PageLayout title={HOME.EN.TITLE ?? ""} description={HOME.EN.DESCRIPTION ?? ""}>
-  <Container containerWidth="mx-auto max-w-[1440px] px-5">
-    <h1 class="notshow frombottom font-semibold text-black dark:text-white" style="view-transition-name: vt-post-featured-title">
-      Dennis Macapagal<span class="text-xl">👋🏻</span>
-    </h1>
-    <div class="space-y-16">
-      <section>
-        <article class="space-y-4">
+<Layout title={titleLayout} description={description}>
+  <section class="animate-fade-down text-center">
+      <h1 class="notshow frombottom font-semibold text-black dark:text-white" style="view-transition-name: vt-post-featured-title">
+        Dennis Macapagal<span class="text-xl">👋🏻</span>
+      </h1>
+      <article class="space-y-4">
           <p class="animate">
             A Full-Stack Developer with more than 10 years of relevant
             experience in web programming. Bringing up-to-date industry skills
@@ -63,48 +58,48 @@ const localeLang = Astro.currentLocale ?? 'en';
             <li class="flex gap-x-2 text-nowrap notshow fromright -my-0.5 inline-flex items-center gap-x-1.5 rounded-md px-2.5 py-1.5 text-sm/5 font-medium sm:text-xs/5 forced-colors:outline bg-green-400/20 text-black-700 group-data-hover:bg-green-400/30 dark:bg-green-400/10 dark:text-green-300 dark:group-data-hover:bg-green-400/15">GIT</li>
           </ul>
         </article>
-      </section>
+  </section>
 
-      <section class="animate space-y-6">
+  <section class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white notshow blur">{Translation.EN.WorkExperience.TITLE}</h5>
+          <h5 class="font-semibold text-black dark:text-white ">Work Experience</h5>
           <!-- <Link href="/work"> See all work </Link> -->
         </div>
-        <ul class="flex flex-col space-y-4">
+        
           {
             work.map((entry) => (
-              <li>
-                <div class="text-sm opacity-75">
-                  {dateRange(entry.data.dateStart, entry.data.dateEnd)}
-                </div>
-                <div class="font-semibold text-black dark:text-white  notshow fromright">
+              <article class="flex flex-col space-y-4">
+                <h3 class="text-xl font-medium text-slate-700">
                   {entry.data.company}
+                </h3>
+                <h4 class="text-md font-medium text-slate-700">
+                  {entry.data.role}
+                </h4>
+                <div class="text-sm opacity-75">
+                  <time datetime={new Date(entry.data.dateStart).toISOString()}>
+                    {new Date(entry.data.dateStart).toLocaleDateString(
+                      locale.date.locale,
+                      locale.date.options,
+                    )}
+                  </time>
+                   - 
+                  {new Date(entry.data.dateEnd).getTime() ? (
+                  <time datetime={new Date(entry.data.dateEnd).toISOString()}>
+                    {new Date(entry.data.dateEnd).toLocaleDateString(
+                    locale.date.locale,
+                    locale.date.options,
+                    )}
+                  </time>
+                  ) : (
+                  <span>Present</span>
+                  )}
                 </div>
-                <div class="text-sm opacity-75">{entry.data.role}</div>
-                <article>
-                  <entry.Content />
-                </article>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
+                
 
-      <section class="animate space-y-6">
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white  notshow fromright">
-            {Translation.EN.RecentProjects.TITLE}
-          </h5>
-          <Link href="https://projects.t2del.com/"> See all projects </Link>
-        </div>
-        <div class="grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {
-            projects.map((project) => (
-                <ProjectsArrowCard entry={project} />
+                <div set:html={entry.body} class="pl-5"></div>
+              </article>
             ))
           }
-        </ul>
+        
       </section>
-    </div>
-  </Container>
-</PageLayout>
+</Layout>

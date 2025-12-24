@@ -1,86 +1,205 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Import tailwindcss and its plugins */
+@import "tailwindcss";
+/**
+ * Typographic plugin for tailwindcss.
+ *
+ * See https://tailwindcss-typography.vercel.app/
+ */
+@plugin "@tailwindcss/typography";
 
-html {
-  overflow-y: scroll;
+/* Import daisyUI and its plugins.
+ * daisyUI is a collection of CSS class names a high-level abstraction of Tailwind CSS utility classes.
+ *
+ * See https://daisyui.com
+ */
+@plugin "daisyui";
+
+/* Set up daisyUI light themes 
+ *
+ * See https://daisyui.com/docs/themes 
+ */
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  prefersdark: false;
   color-scheme: light;
+
+  /* border radius */
+  --radius-selector: 0rem;
+  --radius-field: 0rem;
+  --radius-box: 0rem;
 }
 
-html.dark {
+/* Set up daisyUI dark themes 
+ *
+ * See https://daisyui.com/docs/themes
+ */
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: false;
+  prefersdark: true;
   color-scheme: dark;
+
+  /* border radius */
+  --radius-selector: 0rem;
+  --radius-field: 0rem;
+  --radius-box: 0rem;
 }
 
-html,
-body {
-  @apply size-full;
-}
+/* Add your custom CSS styles here.
+ *
+ * This block is used to define CSS classes or styles that are not yet available in the daisyUI library.
+ * You can define your own CSS classes here and then use them in your HTML components.
+ */
 
-body {
-  @apply font-sans antialiased;
-  @apply flex flex-col;
-  @apply bg-stone-100 dark:bg-stone-900;
-  @apply text-black/50 dark:text-white/75;
-  overflow-x: clip;
-}
-
-header {
-  @apply fixed top-0 left-0 right-0 z-50 py-5;
-  @apply bg-stone-100/75 dark:bg-stone-900/25;
-  @apply backdrop-blur-sm saturate-200;
-}
-
-main {
-  @apply flex-1 py-32;
-}
-
-footer {
-  @apply py-5 text-sm;
-}
-
-article {
-  @apply max-w-full prose dark:prose-invert prose-img:mx-auto prose-img:my-auto;
-  @apply prose-headings:font-semibold prose-p:font-serif;
-  @apply prose-headings:text-black prose-headings:dark:text-white;
-}
-
-@layer utilities {
-  article a {
-    @apply font-sans text-current underline underline-offset-2;
-    @apply decoration-black/15 dark:decoration-white/30;
-    @apply transition-colors duration-300 ease-in-out;
-  }
-  article a:hover {
-    @apply text-black dark:text-white;
-    @apply decoration-black/25 dark:decoration-white/50;
+a svg,
+button svg {
+  @apply opacity-100;
+  a &:hover,
+  button &:hover {
+    @apply opacity-80;
   }
 }
 
-.animate {
-  @apply opacity-0 translate-y-3;
-  @apply transition-all duration-700 ease-out;
+svg {
+  @apply h-6;
+  @apply w-6;
 }
 
-.animate.show {
-  @apply opacity-100 translate-y-0;
+/* CSS transitions to animate elements when they become visible
+ *
+ * The approach is to apply the styles when the "is-visible" class is added to the element.
+ * When the element is visible and the class is added, the transition is triggered.
+ *
+ * See https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
+ */
+
+.animate-fade-up {
+  @apply opacity-0;
+  @apply translate-y-8;
+  @apply transition-opacity duration-500;
+  @apply transition-transform duration-500;
+  @apply delay-25;
+  @apply will-change-[opacity,transform];
+  @apply backface-hidden;
+  @apply transform-3d;
+  @apply transform-cpu;
 }
 
-html #back-to-top {
-  @apply opacity-0 pointer-events-none;
+.animate-fade-up.is-visible {
+  @apply opacity-100;
+  @apply translate-y-0;
+  @apply transition-opacity duration-500;
+  @apply transition-transform duration-500;
+  @apply delay-25;
+  @apply will-change-[opacity,transform];
 }
 
-html.scrolled #back-to-top {
-  @apply opacity-100 pointer-events-auto;
+.animate-fade-right {
+  @apply opacity-0;
+  @apply translate-x-8;
+  @apply transition-opacity duration-500;
+  @apply transition-transform duration-500;
+  @apply delay-25;
+  @apply will-change-[opacity,transform];
+  @apply backface-hidden;
+  @apply transform-3d;
+  @apply transform-cpu;
 }
 
-.hide {
-  display: none !important;
+.animate-fade-right.is-visible {
+  @apply opacity-100;
+  @apply translate-x-0;
+  @apply transition-opacity duration-500;
+  @apply transition-transform duration-500;
+  @apply delay-25;
+  @apply will-change-[opacity,transform];
 }
 
-ul {
-  padding-inline-start: 0;
+.animate-fade-left {
+  @apply opacity-0;
+  @apply -translate-x-8;
+  @apply transition-opacity duration-500;
+  @apply transition-transform duration-500;
+  @apply delay-25;
+  @apply will-change-[opacity,transform];
+  @apply backface-hidden;
+  @apply transform-3d;
+  @apply transform-cpu;
 }
 
-@view-transition {
-  navigation: auto;
+.animate-fade-left.is-visible {
+  @apply opacity-100;
+  @apply translate-x-0;
+  @apply transition-opacity duration-500;
+  @apply transition-transform duration-500;
+  @apply delay-25;
+  @apply will-change-[opacity,transform];
+}
+
+.animate-fade-down {
+  @apply opacity-0;
+  @apply -translate-y-8;
+  @apply transition-opacity duration-500;
+  @apply transition-transform duration-500;
+  @apply delay-25;
+  @apply will-change-[opacity,transform];
+  @apply backface-hidden;
+  @apply transform-3d;
+  @apply transform-cpu;
+}
+
+.animate-fade-down.is-visible {
+  @apply opacity-100;
+  @apply translate-y-0;
+  @apply transition-opacity duration-500;
+  @apply transition-transform duration-500;
+  @apply delay-25;
+  @apply will-change-[opacity,transform];
+}
+
+/**
+ * Pagefind styles
+ *
+ * These styles are used by the pagefind search bar and must be
+ * included in the global stylesheet.
+ *
+ * @see https://github.com/kriskow-web/pagefind
+ */
+:root {
+  --pagefind-ui-text: color-mix(
+    in oklab,
+    var(--color-base-content) 70%,
+    transparent
+  ) !important;
+  --pagefind-ui-bg: var(--color-base-100) !important;
+}
+
+.pagefind-ui__form::before {
+  @apply !top-3.5;
+  @apply !mask-[url("/images/search.svg")];
+}
+
+.pagefind-ui__search-input {
+  @apply !input !pl-10;
+  @apply !w-full;
+  &::placeholder {
+    @apply !text-base-content;
+  }
+}
+
+.pagefind-ui__search-clear {
+  @apply !btn;
+  @apply !top-0;
+  @apply !right-0;
+  @apply !z-1;
+}
+
+.pagefind-ui__result-link {
+  @apply !text-base-content;
+}
+
+.pagefind-ui__results {
+  @apply !overflow-auto;
+  @apply !max-h-[60vh];
 }
