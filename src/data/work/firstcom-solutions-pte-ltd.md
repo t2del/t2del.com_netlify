@@ -4,7 +4,7 @@ role: "Web Developer"
 dateStart: "12/16/2020"
 dateEnd: "07/16/2022"
 draft: false
-publishDate: 2025-03-23 14:00:00
+publishDate: 2020-12-16 14:00:00
 ---
 
 Experienced Web Developer with a strong focus on creating responsive, user-friendly websites. Skilled in both front-end and back-end development using technologies like PHP, HTML, CSS, JavaScript, and JQuery. Proficient in website optimization, security, and maintenance. Experienced working on multiple projects simultaneously and contributing to product development using Laravel.

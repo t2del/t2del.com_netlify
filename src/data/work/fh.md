@@ -4,7 +4,7 @@ role: "Web Developer"
 dateStart: "March  06, 2023"
 dateEnd: "Current"
 draft: false
-publishDate: 2025-03-23 14:00:00
+publishDate: 2023-03-06 14:00:00
 ---
 
 Experienced Web Developer specializing in creating responsive, cross-browser compatible websites. Proficient in back-end development using PHP, HTML, CSS, JavaScript, JQuery, and Ajax. Focused on website security, optimization, and performance. Experienced in WordPress development, security compliance, and Azure Web Apps deployment.

@@ -30,7 +30,7 @@ const postsPerPage = 5;
 
 <Layout title={titleLayout} description={description}>
   <section class="animate-fade-down text-center">
-      <h1 class="notshow frombottom font-semibold text-black dark:text-white" style="view-transition-name: vt-post-featured-title">
+      <h1 class="notshow frombottom font-semibold " style="view-transition-name: vt-post-featured-title">
         Dennis Macapagal<span class="text-xl">👋🏻</span>
       </h1>
       <article class="space-y-4">
@@ -62,17 +62,17 @@ const postsPerPage = 5;
 
   <section class="animate space-y-6">
         <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white ">Work Experience</h5>
+          <h5 class="font-semibold ">Work Experience</h5>
           <!-- <Link href="/work"> See all work </Link> -->
         </div>
         
           {
             work.map((entry) => (
               <article class="flex flex-col space-y-4">
-                <h3 class="text-xl font-medium text-slate-700">
+                <h3 class="text-xl font-medium ">
                   {entry.data.company}
                 </h3>
-                <h4 class="text-md font-medium text-slate-700">
+                <h4 class="text-md font-medium ">
                   {entry.data.role}
                 </h4>
                 <div class="text-sm opacity-75">
