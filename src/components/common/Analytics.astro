@@ -23,12 +23,13 @@ const ga4Id = analytics.google.ga4;
   />
 )}
 
-{gtmId && (
-  <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gtmId}`}></script>
+{ga4Id && (
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-JZRLM8LG36"></script>
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', {gtmId});
+
+    gtag('config', 'G-JZRLM8LG36');
   </script>
 )}
