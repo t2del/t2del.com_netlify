@@ -1,11 +1,12 @@
 ---
 import globalStyles from "../styles/global.css?inline";
 import Analytics from "./common/Analytics.astro?inline";
+import MSClarity from "./common/MSClarity.astro?inline";
 import { metadata, config } from "../consts";
 import { default as contacts } from "../data/contacts.json";
 
 // This component can be used on any page
-const { title, description, image, type, publishDate, updateDate, author } =
+const { title, description, image, type, publishDate, updateDate, author, ga4 = true, clarity = true } =
   Astro.props;
 
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
@@ -111,4 +112,7 @@ const schema = {
 <style is:inline set:html={globalStyles}></style>
 
 <!-- Analytics -->
-<Analytics />
+{ga4 && <Analytics />}
+
+<!-- Clarity -->
+{clarity && <MSClarity />}
