@@ -182,7 +182,7 @@ svg {
 
 .pagefind-ui__search-input {
   @apply !input !pl-10;
-  @apply !w-full;
+  /* @apply !w-full; */
   &::placeholder {
     @apply !text-base-content;
   }
