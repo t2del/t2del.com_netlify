@@ -61,7 +61,7 @@ const basePath = config.base || "";
       if (css.ok) {
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = `${pagefindPath}/pagefind-ui.css`;
+        //link.href = `${pagefindPath}/pagefind-ui.css`;
         document.head.appendChild(link);
       }
 
@@ -71,11 +71,11 @@ const basePath = config.base || "";
       script.onload = () => {
         // Pagefind exposes PagefindUI globally
         // @ts-ignore
-        const PagefindUI = window.PagefindUI ?? (window as any).Pagefind;
-        if (!PagefindUI) {
-          debugEl && (debugEl.textContent = "PagefindUI not found after load");
-          return;
-        }
+        // const PagefindUI = window.PagefindUI ?? (window as any).Pagefind;
+        // if (!PagefindUI) {
+        //   debugEl && (debugEl.textContent = "PagefindUI not found after load");
+        //   return;
+        // }
         // remove fallback input when UI is ready
         const fb = document.getElementById("pf-fallback");
         fb && fb.remove();
