@@ -3,7 +3,7 @@ export const prerender = true;
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import { locale } from "@/consts";
-
+import ContactForm  from "@/components/contact/ContactForm.astro";
 const title = "T2del";
 const titleLayout = `T2del`;
 const description = "Minimal and lightweight blog and portfolio.";
@@ -102,4 +102,12 @@ const postsPerPage = 5;
           }
         
       </section>
+      <section class="animate-fade-down text-center hide hidden">
+        <h2 class="notshow frombottom font-semibold " style="view-transition-name: vt-post-featured-title">
+          Dennis Macapagal<span class="text-xl">👋🏻</span>
+        </h2>
+        <article class="space-y-4">
+            <ContactForm />
+        </article>
+  </section>
 </Layout>
