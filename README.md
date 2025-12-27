@@ -1,21 +1,11 @@
-# Astro Starter Theme
+# Astro Site
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Made with Astro](https://img.shields.io/badge/Made%20with-Astro-blueviolet?logo=astro)](https://astro.build)
-[![Styled with Tailwind CSS](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38B2AC?logo=tailwind-css)](https://tailwindcss.com)
-[![Powered by daisyUI](https://img.shields.io/badge/Powered%20by-daisyUI-green?logo=daisyui)](https://daisyui.com/)
-
----
-
-[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/s/github/mnyorba/astro-starter)
-[![Open in Gitpod](https://img.shields.io/badge/Open%20in-Gitpod-blue?logo=gitpod)](https://gitpod.io/#https://github.com/mnyorba/astro-starter)
-[![Open in StackBlitz](https://img.shields.io/badge/Open%20in-StackBlitz-blue?logo=stackblitz)](https://stackblitz.com/github/mnyorba/astro-starter)
 
 A modern, feature-rich Astro starter template powered by the latest web technologies. Built with Astro 5, Tailwind CSS 4, and DaisyUI for creating fast, beautiful, and accessible websites.
 
 Perfect for blogs, portfolios, business sites, and personal projects with comprehensive documentation and multiple deployment options.
 
-**Live Demo:** [https://mnyorba.github.io/astro-starter/](https://mnyorba.github.io/astro-starter/)
+**Live Site:** [t2del.com](https://www.t2del.com/)
 
 ---
 
@@ -194,13 +184,6 @@ Comprehensive documentation is available in the `/docs` directory:
 | **[Deployment](./docs/deployment.md)** | Deployment to various platforms |
 | **[Search](./docs/search.md)** | How to configure the search functionality |
 
-## Contributing
-
-Contributions are welcome! Please read our contributing guidelines and submit pull requests for any improvements.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
