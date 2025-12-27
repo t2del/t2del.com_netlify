@@ -12,6 +12,8 @@ import partytown from "@astrojs/partytown";
 import { config } from './src/consts';
 import netlify from "@astrojs/netlify";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   site: config.url,
@@ -19,7 +21,7 @@ export default defineConfig({
   trailingSlash: "always",
   compressHTML: false,
   // output: "server",
-  adapter: netlify(),
+  adapter: cloudflare(),
   vite: {
     plugins: [tailwindcss()],
   },
