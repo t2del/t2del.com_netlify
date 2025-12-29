@@ -10,79 +10,53 @@ const isHome =
   Astro.url.pathname === `${config.base}/`;
 ---
 
-<div class="bg-base-100 shadow-sm">
-  <div class="navbar mx-auto max-w-[140rem]">
-    <div class="navbar-start">
-      <div class="dropdown">
-        <div
-          tabindex="0"
-          role="button"
-          class="btn btn-ghost lg:hidden"
-          aria-label="Open menu"
-        >
+<div class="drawer">
+  <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content flex flex-col">
+    <!-- Navbar -->
+    <div class="navbar bg-base-300 w-full mx-auto max-w-[140rem]">
+      <div class=" lg:hidden navbar-start xs:flex-1 sm:flex-1 md:flex-1">
+        <label for="my-drawer-2" aria-label="open sidebar" class="btn btn-square btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor"
+            class="inline-block h-6 w-6 stroke-current"
           >
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M4 6h16M4 12h8m-8 6h16"></path>
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
           </svg>
-        </div>
-        <ul
-          tabindex="0"
-          class="menu dropdown-content bg-base-100 rounded-box z-[1] mt-3 max-w-72 min-w-52 p-2 shadow"
+        </label>
+      </div>
+      <div class="navbar-start xs:flex-1 sm:flex-1 md:flex-1 flex justify-center lg:justify-start">
+        <a
+          href={`${config.base}/`}
+          class="btn btn-ghost center text-xl lg:flex"
         >
+      <img src={Logo.src} alt="Homepage" class="h4 w-20" />
+        </a>
+      </div>
+      <div class="hidden flex-none lg:block navbar-center">
+        <ul class="menu menu-horizontal">
           <NavbarMenuItems />
         </ul>
       </div>
-      {
-        !isHome && (
-          <a
-            href={`${config.base}/`}
-            class="btn btn-ghost hidden text-xl lg:flex"
-          >
-            <img src={Logo.src} alt="Homepage" class="h4 w-20" />
-            
-          </a>
-        )
-      }
-      {
-        isHome && (
-          <span class="btn btn-ghost hidden text-xl lg:flex">
-            <img src={Logo.src} alt="Homepage" class="h4 w-20" />
-            
-          </span>
-        )
-      }
+      <div class="navbar-end xs:flex-1 sm:flex-1 md:flex-1">
+        <SearchModal />
+        <ThemeToggle class="btn bth-ghost" />
+      </div>
     </div>
-    <div class="navbar-center">
-      {
-        !isHome && (
-          <a href={`${config.base}/`} class="btn btn-ghost text-xl lg:hidden">
-            <img src={Logo.src} alt="Homepage" class="h4 w-26" />
-          </a>
-        )
-      }
-      {
-        isHome && (
-          <span class="btn btn-ghost text-xl lg:hidden">
-            <img src={Logo.src} alt="Homepage" class="h4 w-26" />
-          </span>
-        )
-      }
-      <ul class="menu menu-horizontal hidden px-1 lg:flex">
-        <NavbarMenuItems />
-      </ul>
-    </div>
-    <div class="navbar-end">
-      <SearchModal />
-      <ThemeToggle class="btn bth-ghost" />
-    </div>
+
+  </div>
+  <div class="drawer-side">
+    <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+    <ul class="menu bg-base-200 min-h-full w-80 p-4">
+      <!-- Sidebar content here -->
+      <NavbarMenuItems />
+    </ul>
   </div>
 </div>
