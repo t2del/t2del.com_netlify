@@ -8,19 +8,6 @@ const title = "T2del";
 const titleLayout = `T2del`;
 const description = "Minimal and lightweight blog and portfolio.";
 
-// Generate all pagination pages
-// export async function getStaticPaths() {
-//   const posts = await getCollection("work", ({ data }) => data.draft !== true);
-//   const postsPerPage = 5;
-//   const totalPages = Math.ceil(posts.length / postsPerPage);
-
-//   // Pages from 2 to totalPages (because /project/ is index.astro)
-//   return Array.from({ length: totalPages - 1 }).map((_, i) => ({
-//     params: { page: String(i + 2) },
-//   }));
-// }
-
-
 const work = (
   await getCollection("work", ({ data }) => data.draft !== true)
 ).sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
