@@ -3,6 +3,7 @@ import Logo from "../assets/denmac.png";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import NavbarMenuItems from "./navigation/NavbarMenuItems.astro";
 import SearchModal from "./modals/SearchModal.astro";
+import Search from "./search/Search.astro";
 
 import { config } from "../consts";
 const isHome =
@@ -46,7 +47,7 @@ const isHome =
         </ul>
       </div>
       <div class="navbar-end xs:flex-1 sm:flex-1 md:flex-1">
-        <SearchModal />
+        <Search />
         <ThemeToggle class="btn bth-ghost" />
       </div>
     </div>
