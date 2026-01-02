@@ -1,12 +1,10 @@
 ---
 export const prerender = true;
-import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import { locale } from "@/consts";
-import ContactForm  from "@/components/contact/ContactForm.astro";
 const title = "T2del";
 const titleLayout = `Papa`;
 const description = "Danilo Macapagal has entered into rest on June 16th, 2025.";
+import papa from "https://personal-project.t2del.com/papa/papa.mp4";
 ---
 
 <Layout title={titleLayout} description={description} ga4={true} clarity={true}>
