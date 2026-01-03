@@ -1,0 +1,166 @@
+---
+import { config } from "../../consts";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Contact us",
+  description = "Fill out the form and we'll get back to you as soon as possible",
+} = Astro.props;
+
+// Get URL parameters to show the result
+const sent = Astro.url.searchParams.get("sent") === "true";
+const error = Astro.url.searchParams.get("error");
+---
+
+<section class="container mx-auto pb-12">
+  <div class="mb-8 text-center">
+    <h2 class="mt-2 mb-2 text-3xl font-bold">{title}</h2>
+    <p class="text-base-content/70">{description}</p>
+    <!-- Demo notice -->
+    <div role="alert" class="alert alert-info alert-soft">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        class="h-6 w-6 shrink-0 stroke-current"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <div>
+        <h4 class="text-info mt-0">Demo Mode</h4>
+        <span
+          >This contact form is for demonstration purposes only. Messages are
+          not actually sent or stored.</span
+        >
+      </div>
+    </div>
+  </div>
+
+  <form 
+      name="contact" 
+      method="POST" 
+      data-netlify="true" 
+      
+      class="contact-form"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          required 
+          placeholder="Your Name"
+          minlength="2"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          required 
+          placeholder="email@example.com"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea 
+          id="message" 
+          name="message" 
+          required 
+          rows="5" 
+          placeholder="How can we help?"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+
+  <!-- Demo success message (hidden by default) -->
+  <div
+    id="demo-success"
+    class="alert alert-success mb-6"
+    style="display: none;"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="h-6 w-6 shrink-0 stroke-current"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>
+    <span
+      >Demo: Message would be sent successfully! (This is just a demonstration)</span
+    >
+  </div>
+</section>
+
+<style>
+  .container { max-width: 600px; margin: 2rem auto; padding: 0 1rem; }
+  .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  
+  input, textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  /* Basic Validation Styling */
+  input:invalid:focus { border-color: #ff4d4d; outline: none; }
+  input:valid:focus { border-color: #2ecc71; }
+
+  .submit-btn {
+    background: #333;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .submit-btn:hover { background: #555; }
+</style>
+
+<script is:inline>
+  // Client-side validation logic
+  const form = document.getElementById('contact-form');
+  const emailInput = document.getElementById('email');
+  const emailError = document.getElementById('email-error');
+
+  form?.addEventListener('submit', (e) => {
+    let isValid = true;
+
+    // Basic Custom Email Validation
+    if (!emailInput.value.includes('@')) {
+      if (emailError) emailError.textContent = "Please enter a valid email address.";
+      isValid = false;
+    } else {
+      if (emailError) emailError.textContent = "";
+    }
+
+    if (!isValid) {
+      e.preventDefault();
+    }
+  });
+</script>
