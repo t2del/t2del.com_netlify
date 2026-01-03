@@ -17,99 +17,39 @@ const error = Astro.url.searchParams.get("error");
 ---
 
 <section class="container mx-auto pb-12">
-  <div class="mb-8 text-center">
-    <h2 class="mt-2 mb-2 text-3xl font-bold">{title}</h2>
-    <p class="text-base-content/70">{description}</p>
-    <!-- Demo notice -->
-    <div role="alert" class="alert alert-info alert-soft">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        class="h-6 w-6 shrink-0 stroke-current"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-      </svg>
-      <div>
-        <h4 class="text-info mt-0">Demo Mode</h4>
-        <span
-          >This contact form is for demonstration purposes only. Messages are
-          not actually sent or stored.</span
-        >
-      </div>
-    </div>
-  </div>
-
-  <form 
-      name="contact" 
-      method="POST" 
-      data-netlify="true" 
-      
+  <div class="contact-container">
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      id="contact-form"
       class="contact-form"
     >
       <input type="hidden" name="form-name" value="contact" />
-
+      
       <div class="form-group">
         <label for="name">Name</label>
-        <input 
-          type="text" 
-          id="name" 
-          name="name" 
-          required 
-          placeholder="Your Name"
-          minlength="2"
-        />
+        <input type="text" id="name" name="name" required />
       </div>
 
       <div class="form-group">
-        <label for="email">Email Address</label>
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          required 
-          placeholder="email@example.com"
-        />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
       </div>
 
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea 
-          id="message" 
-          name="message" 
-          required 
-          rows="5" 
-          placeholder="How can we help?"></textarea>
+        <textarea id="message" name="message" required></textarea>
       </div>
 
-      <button type="submit" class="submit-btn">Send Message</button>
+      <button type="submit" id="submit-btn">Send Message</button>
     </form>
 
-  <!-- Demo success message (hidden by default) -->
-  <div
-    id="demo-success"
-    class="alert alert-success mb-6"
-    style="display: none;"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="h-6 w-6 shrink-0 stroke-current"
-      fill="none"
-      viewBox="0 0 24 24"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-    </svg>
-    <span
-      >Demo: Message would be sent successfully! (This is just a demonstration)</span
-    >
+    <div id="response-msg" class="hidden">
+      <div class="success-card">
+        <p>✅ Thank you! Your message has been received.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -140,27 +80,64 @@ const error = Astro.url.searchParams.get("error");
   }
   
   .submit-btn:hover { background: #555; }
+  .contact-form.hidden, #response-msg.hidden {
+    display: none;
+  }
+  
+  .contact-container {
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+
+  .success-card {
+    padding: 1rem;
+    background-color: #e6fffa;
+    border: 1px solid #38b2ac;
+    color: #234e52;
+    border-radius: 8px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Basic form styling */
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; }
+  input, textarea { padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; }
+  button { padding: 0.7rem; background: #333; color: white; border: none; cursor: pointer; }
 </style>
 
 <script is:inline>
   // Client-side validation logic
-  const form = document.getElementById('contact-form');
-  const emailInput = document.getElementById('email');
-  const emailError = document.getElementById('email-error');
+  const contactForm = document.getElementById('contact-form');
+  const responseMsg = document.getElementById('response-msg');
 
-  form?.addEventListener('submit', (e) => {
-    let isValid = true;
+  contactForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-    // Basic Custom Email Validation
-    if (!emailInput.value.includes('@')) {
-      if (emailError) emailError.textContent = "Please enter a valid email address.";
-      isValid = false;
-    } else {
-      if (emailError) emailError.textContent = "";
-    }
+    const formData = new FormData(contactForm);
+    
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      });
 
-    if (!isValid) {
-      e.preventDefault();
+      if (response.ok) {
+        // Hide the form and show the success message
+        contactForm.classList.add('hidden');
+        responseMsg?.classList.remove('hidden');
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      alert("Opps! There was an error submitting the form.");
     }
   });
+  
 </script>
